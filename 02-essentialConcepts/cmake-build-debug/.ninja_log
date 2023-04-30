@@ -1,0 +1,22 @@
+# ninja log v5
+9	2845	7043138952824144	CMakeFiles/02_essentialConcepts.dir/functions.cpp.obj	11f09a3261a107f3
+10	3007	7042266832091840	CMakeFiles/02_essentialConcepts.dir/main.cpp.obj	d5eb4dcef1095dcc
+5397	5981	7044041460101427	02_essentialConcepts.exe	6b5752e3c112cc89
+8	2885	7043116776832777	CMakeFiles/02_essentialConcepts.dir/structure.cpp.obj	2d0ed7e21b7f500b
+10	4030	7043127708819977	CMakeFiles/02_essentialConcepts.dir/pointers.cpp.obj	87a4c3b57a55652a
+19	3197	7043129700820675	CMakeFiles/02_essentialConcepts.dir/reference.cpp.obj	b5d22391f17c22a3
+3	578	7044042006486165	build.ninja	6a81de148ac3dfc2
+11	3518	7043135279085515	CMakeFiles/02_essentialConcepts.dir/pointerToStructure.cpp.obj	4819bcfbf7c4bc56
+0	2580	7043179777280122	CMakeFiles/02_essentialConcepts.dir/parameterPassing.cpp.obj	8e0e82f0abbb582f
+8	2489	7043190007825308	CMakeFiles/02_essentialConcepts.dir/arrayAsParameter.cpp.obj	7b712818e23674bd
+1	5247	7044014148022598	CMakeFiles/02_essentialConcepts.dir/structureAsParameter.cpp.obj	a8314e368db6254
+1	5980	7044020424159505	CMakeFiles/02_essentialConcepts.dir/modularProgram.cpp.obj	b6250809a737199c
+1	5387	7044041454121674	CMakeFiles/02_essentialConcepts.dir/class.cpp.obj	6474e0565de91eac
+1	2649	7044044951004253	CMakeFiles/02_essentialConcepts.dir/template.cpp.obj	8d7d95e737ea2187
+2658	2996	7044044954378280	02_essentialConcepts.exe	10a7033250e3b1c4
+59	3642	7044050862265240	CMakeFiles/02_essentialConcepts.dir/template.cpp.obj	8d7d95e737ea2187
+3645	3958	7044050865360854	02_essentialConcepts.exe	10a7033250e3b1c4
+8	4092	7044050999679202	CMakeFiles/02_essentialConcepts.dir/template.cpp.obj	8d7d95e737ea2187
+4093	4378	7044051002477889	02_essentialConcepts.exe	10a7033250e3b1c4
+12	5221	7044051664051298	CMakeFiles/02_essentialConcepts.dir/template.cpp.obj	8d7d95e737ea2187
+5225	5649	7044051668321005	02_essentialConcepts.exe	10a7033250e3b1c4

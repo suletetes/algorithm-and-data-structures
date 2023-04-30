@@ -1,0 +1,3 @@
+C:/Users/suleiman/CLionProjects/Data structures/05_recursion/cmake-build-debug/CMakeFiles/05_recursion.dir
+C:/Users/suleiman/CLionProjects/Data structures/05_recursion/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/suleiman/CLionProjects/Data structures/05_recursion/cmake-build-debug/CMakeFiles/rebuild_cache.dir

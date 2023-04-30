@@ -1,0 +1,3 @@
+C:/Users/suleiman/CLionProjects/Data structures/02-essentialConcepts/cmake-build-debug/CMakeFiles/02_essentialConcepts.dir
+C:/Users/suleiman/CLionProjects/Data structures/02-essentialConcepts/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/suleiman/CLionProjects/Data structures/02-essentialConcepts/cmake-build-debug/CMakeFiles/rebuild_cache.dir
