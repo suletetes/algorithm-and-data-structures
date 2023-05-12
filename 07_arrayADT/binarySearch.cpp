@@ -65,7 +65,7 @@ int binarySearch(struct array arr, int key) {
     return 0;
 }
 
-int rBinSearch(int a[], int l, int h, int key) {
+int rBinSearch(int a[], int l, int h, int key) { // recursive function for binary seacrh
     int mid;
     if (l <= h) {
         mid = (l + h) / 2;
