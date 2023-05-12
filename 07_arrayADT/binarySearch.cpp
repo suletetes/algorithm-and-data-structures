@@ -65,6 +65,18 @@ int binarySearch(struct array arr, int key) {
     return 0;
 }
 
+int rBinSearch(int a[], int l, int h, int key) {
+    int mid;
+    if (l <= h) {
+        mid = (l + h) / 2;
+        if (key == a[mid])
+            return mid;
+        else if (key < a[mid])
+            return rBinSearch(a, l, mid - 1, key);
+        else
+            return rBinSearch(a, l, mid + 1, key);
+    }
+}
 
 int main() {
     int n;
