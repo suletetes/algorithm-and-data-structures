@@ -3,4 +3,4 @@ project(07_arrayADT)
 
 set(CMAKE_CXX_STANDARD 23)
 
-add_executable(07_arrayADT  linearSearch.cpp )
+add_executable(07_arrayADT  linearSearch.cpp getSetMaxOnArray.cpp arrayReverse.cpp checkSortedArray.cpp mergeArray.cpp setOperationsOnArray.cpp)
