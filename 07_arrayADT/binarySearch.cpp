@@ -65,7 +65,7 @@ int binarySearch(struct array arr, int key) {
     return 0;
 }
 
-int rBinSearch(int a[], int l, int h, int key) { // recursive function for binary seacrh
+int rBinSearch(int a[], int l, int h, int key) { // recursive function for binary search (recursive version)
     int mid;
     if (l <= h) {
         mid = (l + h) / 2;
@@ -83,7 +83,7 @@ int main() {
     struct array arr{{2, 3, 4, 5, 6, 7, 8, 7, 5, 6}, 20, 5};
 
 
-    printf("%d\n", binarySearch(arr, 5));
+    printf("%d\n", rBinSearch(arr.A,0,arr.length, 5));
     display(arr);
 
     return 0;
