@@ -166,8 +166,8 @@ struct array *merge(struct array *arr1, struct array *arr2) {
 }
 
 int main() {
-    struct array arr1{{2, 3, 5, 10, 15}, 10, 5};
-    struct array arr2{{3, 4, 7, 18, 20}, 10, 5};
+    struct array arr1 = {{2, 3, 5, 10, 15}, 10, 5};
+    struct array arr2 = {{3, 4, 7, 18, 20}, 10, 5};
     struct array *arr3;
     arr3 = merge(&arr1, &arr2);
     display(*arr3);
