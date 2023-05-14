@@ -3,5 +3,4 @@ project(07_arrayADT)
 
 set(CMAKE_CXX_STANDARD 23)
 
-add_executable(07_arrayADT findingMultipleElements.cpp)
-#add_executable(07_arrayADT   findPairElement.cpp findingDuplicatesElements.cpp)
+add_executable(07_arrayADT . findingDuplicatesElements.cpp)
