@@ -44,9 +44,15 @@ int *newMissing(int arr[], size_t size, int low, int high) {
 
 
 int main() {
-    int array[] = {1, 2, 5, 6, 7, 8, 4, 9, 8};
+    int array[] = {1, 2, 5, 6, 7, 8, 4, 9, 8, 20};
     display(array, 8);
-    findingMultipleMissingElements(array, 8);
+//    findingMultipleMissingElements(array, 8);
+    int low = 1;
+    int high = 20;
+    int *h;
 
+    h = newMissing(array, 10, low, high);
+
+    free(h);
     return 0;
 }
