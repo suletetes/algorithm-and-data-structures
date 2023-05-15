@@ -1,12 +1,15 @@
 #include <stdio.h>
 #include<stdlib.h>
 #include "iostream"
+
 using namespace std;
+
 class Array {
 private:
     int *A;
     int size;
     int length;
+
     void swap(int *x, int *y);
 
 public:
@@ -27,26 +30,47 @@ public:
     }
 
     void Display();
+
     void Append(int x);
-    void Insert(int index,int x);
+
+    void Insert(int index, int x);
+
     int Delete(int index);
+
     int LinearSearch(int key);
+
     int BinarySearch(int key);
+
     int Get(int index);
-    void Set(int index,int x);
+
+    void Set(int index, int x);
+
     int Max();
+
     int Min();
+
     int Sum();
+
     float Avg();
+
     void Reverse();
+
     void Reverse2();
+
     void InsertSort(int x);
+
     int isSorted();
+
     void Rearrange();
-    Array* Merge(Array arr2);
-    Array* Union(Array arr2);
-    Array* Diff(Array arr2);
-    Array* Inter(Array arr2);
+
+    Array *Merge(Array arr2);
+
+    Array *Union(Array arr2);
+
+    Array *Diff(Array arr2);
+
+    Array *Inter(Array arr2);
+
     int Array::RBinSearch(int a[], int l, int h, int key);
 };
 
@@ -57,13 +81,13 @@ void Array::Display() {
         printf("%d ", A[i]);
 }
 
-void Array::Append( int x) {
+void Array::Append(int x) {
     if (length < size)
         A[length++] = x;
 
 }
 
-void Array::Insert( int index, int x) {
+void Array::Insert(int index, int x) {
     int i;
     if (index >= 0 && index <= length) {
         for (i = length; i > index; i--)
@@ -74,7 +98,7 @@ void Array::Insert( int index, int x) {
     }
 }
 
-int Array::Delete( int index) {
+int Array::Delete(int index) {
     int x = 0;
     int i;
 
@@ -96,7 +120,7 @@ void Array::swap(int *x, int *y) {
     *y = temp;
 }
 
-int Array::LinearSearch( int key) {
+int Array::LinearSearch(int key) {
     int i;
     for (i = 0; i < length; i++) {
         if (key == A[i]) {
@@ -107,7 +131,7 @@ int Array::LinearSearch( int key) {
     return -1;
 }
 
-int Array::BinarySearch( int key) {
+int Array::BinarySearch(int key) {
     int l, mid, h;
     l = 0;
     h = length - 1;
@@ -139,7 +163,7 @@ int Array::RBinSearch(int a[], int l, int h, int key) {
     return -1;
 }
 
-int Array::Get( int index) {
+int Array::Get(int index) {
     if (index >= 0 && index < length)
         return A[index];
     return -1;
@@ -195,198 +219,188 @@ void Array::Reverse() {
 
 }
 
-void Array::Reverse2()
-{
-    int i,j;
-    for(i=0,j= length-1;i<j;i++,j--)
-    {
-        swap(& A[i],& A[j]);
+void Array::Reverse2() {
+    int i, j;
+    for (i = 0, j = length - 1; i < j; i++, j--) {
+        swap(&A[i], &A[j]);
     }
 }
-void Array::InsertSort(int x)
-{
-    int i= length-1;
-    if( length== size)
+
+void Array::InsertSort(int x) {
+    int i = length - 1;
+    if (length == size)
         return;
-    while(i>=0 && A[i]>x)
-    {
-        A[i+1]= A[i];
+    while (i >= 0 && A[i] > x) {
+        A[i + 1] = A[i];
         i--;
     }
-    A[i+1]=x;
+    A[i + 1] = x;
     length++;
 
 }
-int Array::isSorted()
-{
+
+int Array::isSorted() {
     int i;
-    for(i=0;i<length-1;i++)
-    {
-        if(A[i]>A[i+1])
+    for (i = 0; i < length - 1; i++) {
+        if (A[i] > A[i + 1])
             return 0;
     }
     return 1;
 }
-void Array::Rearrange()
-{
-    int i,j;
-    i=0;
-    j= length-1;
 
-    while(i<j)
-    {
-        while( A[i]<0)i++;
-        while( A[j]>=0)j--;
-        if(i<j)swap(& A[i],& A[j]);
+void Array::Rearrange() {
+    int i, j;
+    i = 0;
+    j = length - 1;
+
+    while (i < j) {
+        while (A[i] < 0)i++;
+        while (A[j] >= 0)j--;
+        if (i < j)swap(&A[i], &A[j]);
     }
 
 }
-Array* Array::Merge(Array arr2)
-{
-    int i,j,k;
-    i=j=k=0;
 
-    Array *arr3=new Array(length+arr2.length);
+Array *Array::Merge(Array arr2) {
+    int i, j, k;
+    i = j = k = 0;
 
-    while(i<length && j<arr2.length)
-    {
-        if(A[i]<arr2.A[j])
-            arr3->A[k++]=A[i++];
+    Array *arr3 = new Array(length + arr2.length);
+
+    while (i < length && j < arr2.length) {
+        if (A[i] < arr2.A[j])
+            arr3->A[k++] = A[i++];
         else
-            arr3->A[k++]=arr2.A[j++];
+            arr3->A[k++] = arr2.A[j++];
     }
-    for(;i<length;i++)
-        arr3->A[k++]=A[i];
-    for(;j<arr2.length;j++)
-        arr3->A[k++]=arr2.A[j];
-    arr3->length=length+arr2.length;
+    for (; i < length; i++)
+        arr3->A[k++] = A[i];
+    for (; j < arr2.length; j++)
+        arr3->A[k++] = arr2.A[j];
+    arr3->length = length + arr2.length;
 
     return arr3;
 }
-Array* Array::Union(Array arr2)
-{
-    int i,j,k;
-    i=j=k=0;
 
-    Array *arr3=new Array(length+arr2.length);
+Array *Array::Union(Array arr2) {
+    int i, j, k;
+    i = j = k = 0;
 
-    while(i<length && j<arr2.length)
-    {
-        if(A[i]<arr2.A[j])
-            arr3->A[k++]=A[i++];
-        else if(arr2.A[j]<A[i])
-            arr3->A[k++]=arr2.A[j++];
-        else
-        {
-            arr3->A[k++]=A[i++];
+    Array *arr3 = new Array(length + arr2.length);
+
+    while (i < length && j < arr2.length) {
+        if (A[i] < arr2.A[j])
+            arr3->A[k++] = A[i++];
+        else if (arr2.A[j] < A[i])
+            arr3->A[k++] = arr2.A[j++];
+        else {
+            arr3->A[k++] = A[i++];
             j++;
         }
     }
-    for(;i<length;i++)
-        arr3->A[k++]=A[i];
-    for(;j<arr2.length;j++)
-        arr3->A[k++]=arr2.A[j];
+    for (; i < length; i++)
+        arr3->A[k++] = A[i];
+    for (; j < arr2.length; j++)
+        arr3->A[k++] = arr2.A[j];
 
-    arr3->length=k;
+    arr3->length = k;
 
     return arr3;
 }
-Array* Array::Inter(Array arr2)
-{
-    int i,j,k;
-    i=j=k=0;
 
-    Array *arr3=new Array(length+arr2.length);
+Array *Array::Inter(Array arr2) {
+    int i, j, k;
+    i = j = k = 0;
 
-    while(i<length && j<arr2.length)
-    {
-        if(A[i]<arr2.A[j])
+    Array *arr3 = new Array(length + arr2.length);
+
+    while (i < length && j < arr2.length) {
+        if (A[i] < arr2.A[j])
             i++;
-        else if(arr2.A[j]<A[i])
+        else if (arr2.A[j] < A[i])
             j++;
-        else if(A[i]==arr2.A[j])
-        {
-            arr3->A[k++]=A[i++];
+        else if (A[i] == arr2.A[j]) {
+            arr3->A[k++] = A[i++];
             j++;
         }
     }
 
-    arr3->length=k;
+    arr3->length = k;
 
     return arr3;
 }
-Array* Array::Diff(Array arr2)
-{
-    int i,j,k;
-    i=j=k=0;
 
-    Array *arr3=new Array(length+arr2.length);
+Array *Array::Diff(Array arr2) {
+    int i, j, k;
+    i = j = k = 0;
 
-    while(i<length && j<arr2.length)
-    {
-        if(A[i]<arr2.A[j])
-            arr3->A[k++]=A[i++];
-        else if(arr2.A[j]<A[i])
+    Array *arr3 = new Array(length + arr2.length);
+
+    while (i < length && j < arr2.length) {
+        if (A[i] < arr2.A[j])
+            arr3->A[k++] = A[i++];
+        else if (arr2.A[j] < A[i])
             j++;
-        else
-        {
+        else {
             i++;
             j++;
         }
     }
-    for(;i<length;i++)
-        arr3->A[k++]=A[i];
+    for (; i < length; i++)
+        arr3->A[k++] = A[i];
 
 
-    arr3->length=k;
+    arr3->length = k;
 
     return arr3;
 }
-int main()
-{
+
+int main() {
     Array *arr1;
-    int ch,sz;
-    int x,index;
+    int ch, sz;
+    int x, index;
 
-    cout<<"Enter Size of Array";
-    scanf("%d",&sz);
-    arr1=new Array(sz);
+    cout << "Enter Size of Array";
+    scanf("%d", &sz);
+    arr1 = new Array(sz);
 
-    do
-    {
-        cout<<"\n\nMenu\n";
-        cout<<"1. Insert\n";
-        cout<<"2. Delete\n";
-        cout<<"3. Search\n";
-        cout<<"4. Sum\n";
-        cout<<"5. Display\n";
-        cout<<"6.Exit\n";
+    do {
+        cout << "\n\nMenu\n";
+        cout << "1. Insert\n";
+        cout << "2. Delete\n";
+        cout << "3. Search\n";
+        cout << "4. Sum\n";
+        cout << "5. Display\n";
+        cout << "6.Exit\n";
 
-        cout<<"enter you choice ";
-        cin>>ch;
+        cout << "enter you choice ";
+        cin >> ch;
 
-        switch(ch)
-        {
-            case 1: cout<<"Enter an element and index ";
-                cin>>x>>index;
-                arr1->Insert(index,x);
+        switch (ch) {
+            case 1:
+                cout << "Enter an element and index ";
+                cin >> x >> index;
+                arr1->Insert(index, x);
                 break;
-            case 2: cout<<"Enter index ";
-                cin>>index;
-                x=arr1->Delete(index);
-                cout<<"Deleted Element is"<<x;
+            case 2:
+                cout << "Enter index ";
+                cin >> index;
+                x = arr1->Delete(index);
+                cout << "Deleted Element is" << x;
                 break;
-            case 3:cout<<"Enter element to search";
-                cin>>x;
-                index=arr1->LinearSearch(x);
-                cout<<"Element index "<<index;
+            case 3:
+                cout << "Enter element to search";
+                cin >> x;
+                index = arr1->LinearSearch(x);
+                cout << "Element index " << index;
                 break;
-            case 4:cout<<"Sum is "<<arr1->Sum();
+            case 4:
+                cout << "Sum is " << arr1->Sum();
                 break;
-            case 5:arr1->Display();
+            case 5:
+                arr1->Display();
 
         }
-    }while(ch<6);
+    } while (ch < 6);
     return 0;
-}
 }
