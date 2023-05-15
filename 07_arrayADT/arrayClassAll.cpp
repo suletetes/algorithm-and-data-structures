@@ -33,7 +33,7 @@ public:
 };
 template<class T>
 void Array<T>::Display() {
-    for (T i = 0; i < length; ++i) {
+    for (int i = 0; i < length; ++i) {
         cout << A[i] << " ";
         cout << endl;
     }
@@ -42,7 +42,7 @@ template<class T>
 
 void Array<T>::insert(int index, T x) {
     if (index >= 0 && index <= length)
-        for (T i = length - 1; i >= index; ++i)
+        for (int i = length - 1; i >= index; ++i)
             A[i + 1] = A[i];
     A[index] = x;
     length++;
@@ -61,10 +61,10 @@ T Array<T>::Delete(int index) {
 }
 
 int main() {
-    Array<int> arr(10);
-    arr.insert(0, 5);
-    arr.insert(1, 6);
-    arr.insert(2, 7);
+    Array<float> arr(10);
+    arr.insert(0, 5.3);
+    arr.insert(1, 6.2);
+    arr.insert(2, 7.7);
     cout << arr.Delete(0) << endl;
     arr.Display();
     return 0;
