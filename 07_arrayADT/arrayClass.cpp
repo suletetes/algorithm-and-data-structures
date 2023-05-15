@@ -1,66 +1,31 @@
-//#include <iostream>
-//#include "stdio.h"
-//#include "stdlib.h"
-//
-//struct array {
-//    int A[20];
-//    int size;
-//    int length;
-//};
-//
-//void display(struct array arr) {
-//    printf("\nElements are\n");
-//    for (int j = 0; j < arr.length; ++j) {
-//        printf("%d ", arr.A[j]);
-//    }
-//}
-//
-//int main() {
-//    int n;
-//    struct array arr{{2, 3, 4, 5, 6, 7, 8, 7, 5, 6}, 20, 5};
-////    printf("Enter size of an array ");
-////    scanf("%d", &arr.size);
-////    arr.A = (int *) malloc(arr.size * sizeof(int));
-////    arr.length = 0;
-////    printf("Enter number of numbers ");
-////    scanf("%d", &n);
-////
-////    for (int i = 0; i < n; ++i) {
-////        scanf("%d", &arr.A[i]);
-////    }
-////    arr.length = n;
-//    display(arr);
-//    return 0;
-//}
-
-Array using C++ modified
-#include <iostream>
+#include <stdio.h>
+#include<stdlib.h>
+#include "iostream"
 using namespace std;
-class Array
-{
+class Array {
 private:
     int *A;
     int size;
     int length;
-    void swap(int *x,int *y);
+    void swap(int *x, int *y);
 
 public:
-    Array()
-    {
-        size=10;
-        length=0;
-        A=new int[size];
+    Array() {
+        size = 10;
+        length = 0;
+        A = new int[size];
     }
-    Array(int sz)
-    {
-        size=sz;
-        length=0;
-        A=new int[size];
+
+    Array(int sz) {
+        size = sz;
+        length = 0;
+        A = new int[size];
     }
-    ~Array()
-    {
-        delete []A;
+
+    ~Array() {
+        delete[] A;
     }
+
     void Display();
     void Append(int x);
     void Insert(int index,int x);
@@ -82,144 +47,154 @@ public:
     Array* Union(Array arr2);
     Array* Diff(Array arr2);
     Array* Inter(Array arr2);
+    int Array::RBinSearch(int a[], int l, int h, int key);
 };
-void Array::Display()
-{
+
+void Array::Display() {
     int i;
-    cout<<"\nElements are\n";
-    for(i=0;i<length;i++)
-        cout<<A[i]<<" ";
+    printf("\nElements are\n");
+    for (i = 0; i < length; i++)
+        printf("%d ", A[i]);
 }
-void Array::Append(int x)
-{
-    if(length<size)
-        A[length++]=x;
+
+void Array::Append( int x) {
+    if (length < size)
+        A[length++] = x;
 
 }
-void Array::Insert(int index,int x)
-{
+
+void Array::Insert( int index, int x) {
     int i;
-    if(index>=0 && index <=length)
-    {
-        for(i=length;i>index;i--)
-            A[i]=A[i-1];
-        A[index]=x;
+    if (index >= 0 && index <= length) {
+        for (i = length; i > index; i--)
+            A[i] = A[i - 1];
+        A[index] = x;
         length++;
 
     }
 }
-int Array::Delete(int index)
-{
-    int x=0;
+
+int Array::Delete( int index) {
+    int x = 0;
     int i;
 
-    if(index>=0 && index<length)
-    {
-        x=A[index];
-        for(i=index;i<length-1;i++)
-            A[i]=A[i+1];
+    if (index >= 0 && index < length) {
+        x = A[index];
+        for (i = index; i < length - 1; i++)
+            A[i] = A[i + 1];
         length--;
         return x;
     }
 
     return 0;
 }
-void Array::swap(int *x,int *y)
-{
+
+void Array::swap(int *x, int *y) {
     int temp;
-    temp=*x;
-    *x=*y;
-    *y=temp;
+    temp = *x;
+    *x = *y;
+    *y = temp;
 }
-int Array::LinearSearch(int key)
-{
+
+int Array::LinearSearch( int key) {
     int i;
-    for(i=0;i<length;i++)
-    {
-        if(key==A[i])
-        {
-            swap(&A[i],&A[0]);
+    for (i = 0; i < length; i++) {
+        if (key == A[i]) {
+            swap(&A[i], &A[0]);
             return i;
         }
     }
     return -1;
 }
-int Array::BinarySearch(int key)
-{
-    int l,mid,h;
-    l=0;
-    h=length-1;
 
-    while(l<=h)
-    {
-        mid=(l+h)/2;
-        if(key==A[mid])
+int Array::BinarySearch( int key) {
+    int l, mid, h;
+    l = 0;
+    h = length - 1;
+
+    while (l <= h) {
+        mid = (l + h) / 2;
+        if (key == A[mid])
             return mid;
-        else if(key<A[mid])
-            h=mid-1;
+        else if (key < A[mid])
+            h = mid - 1;
         else
-            l=mid+1;
+            l = mid + 1;
     }
     return -1;
 }
-int Array::Get(int index)
-{
-    if(index>=0 && index<length)
+
+int Array::RBinSearch(int a[], int l, int h, int key) {
+    int mid;
+
+    if (l <= h) {
+        mid = (l + h) / 2;
+        if (key == a[mid])
+            return mid;
+        else if (key < a[mid])
+            return RBinSearch(a, l, mid - 1, key);
+        else
+            return RBinSearch(a, mid + 1, h, key);
+    }
+    return -1;
+}
+
+int Array::Get( int index) {
+    if (index >= 0 && index < length)
         return A[index];
     return -1;
 }
-void Array::Set(int index,int x)
-{
-    if(index>=0 && index< length)
-        A[index]=x;
+
+void Array::Set(int index, int x) {
+    if (index >= 0 && index < length)
+        A[index] = x;
 }
-int Array::Max()
-{
-    int max=A[0];
+
+int Array::Max() {
+    int max = A[0];
     int i;
-    for(i=1;i<length;i++)
-    {
-        if(A[i]>max)
-            max=A[i];
+    for (i = 1; i < length; i++) {
+        if (A[i] > max)
+            max = A[i];
     }
     return max;
 }
-int Array::Min()
-{
-    int min=A[0];
+
+int Array::Min() {
+    int min = A[0];
     int i;
-    for(i=1;i<length;i++)
-    {
-        if(A[i]<min)
-            min=A[i];
+    for (i = 1; i < length; i++) {
+        if (A[i] < min)
+            min = A[i];
     }
     return min;
 }
-int Array::Sum()
-{
-    int s=0;
+
+int Array::Sum() {
+    int s = 0;
     int i;
-    for(i=0;i<length;i++)
-        s+=A[i];
+    for (i = 0; i < length; i++)
+        s += A[i];
 
     return s;
 }
-float Array::Avg()
-{
-    return (float)Sum()/length;
+
+float Array::Avg() {
+    return (float) Sum() / length;
 }
-void Array::Reverse()
-{
+
+void Array::Reverse() {
     int *B;
-    int i,j;
+    int i, j;
 
-    B=(int *)malloc(length*sizeof(int));
-    for(i=length-1,j=0;i>=0;i--,j++)
-        B[j]=A[i];
-    for(i=0;i<length;i++)
-        A[i]=B[i];
+    B = (int *) malloc(length * sizeof(int));
+    for (i = length - 1, j = 0; i >= 0; i--, j++)
+        B[j] = A[i];
+    for (i = 0; i < length; i++)
+        A[i] = B[i];
 
 }
+
 void Array::Reverse2()
 {
     int i,j;
@@ -392,8 +367,7 @@ int main()
 
         switch(ch)
         {
-            case 1: cout<<"Enter an element and
-                index ";
+            case 1: cout<<"Enter an element and index ";
                 cin>>x>>index;
                 arr1->Insert(index,x);
                 break;
@@ -402,8 +376,7 @@ int main()
                 x=arr1->Delete(index);
                 cout<<"Deleted Element is"<<x;
                 break;
-            case 3:cout<<"Enter element to search
-                         ";
+            case 3:cout<<"Enter element to search";
                 cin>>x;
                 index=arr1->LinearSearch(x);
                 cout<<"Element index "<<index;
@@ -415,4 +388,5 @@ int main()
         }
     }while(ch<6);
     return 0;
+}
 }
