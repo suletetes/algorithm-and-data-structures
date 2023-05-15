@@ -85,10 +85,10 @@ struct array *difference(struct array *arr1, struct array *arr2) {
 
 int main() {
     int n;
-    struct array arr{{2, 3, 4, 5, 6, 7, 8, 7, 5, 6}, 20, 5};
+    struct array arr{{2, 3, 4, 35, 6, 7, 8, 7, 5, 6}, 20, 5};
     struct array arr1{{2, 3, 4, 5, 6, 7, 8, 18, 5, 10}, 20, 5};
     struct array *arr3;
-    arr3 = intersection(&arr, &arr1);
+    arr3 = difference(&arr, &arr1);
 
 
     display(*arr3);
