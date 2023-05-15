@@ -71,7 +71,7 @@ public:
 
     Array *Inter(Array arr2);
 
-    int Array::RBinSearch(int a[], int l, int h, int key);
+    int RBinSearch(int a[], int l, int h, int key);
 };
 
 void Array::Display() {
