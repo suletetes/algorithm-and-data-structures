@@ -28,7 +28,7 @@ void reverseString2(char arr[]){
     int i, j;
     for (j = 0;  j[arr] != '\0'; j++) {}
     j--;
-    for ( i = 0; i < j; j--) {
+    for ( i = 0; i < j; i++, j--) {
         t = arr[i];
         arr[i] = arr[j];
         arr[j] = t;
