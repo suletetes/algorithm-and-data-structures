@@ -3,4 +3,5 @@ project(08_Strings)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(08_Strings   countingWords.cpp validateString.cpp reverseString.cpp comparingStringAndPalindrome.cpp findDuplicateString.cpp)
+add_executable(08_Strings   validateString.cpp )
+#add_executable(08_Strings    reverseString.cpp comparingStringAndPalindrome.cpp findDuplicateString.cpp)
