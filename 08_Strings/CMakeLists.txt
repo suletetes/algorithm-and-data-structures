@@ -3,5 +3,5 @@ project(08_Strings)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(08_Strings   reverseString.cpp )
-#add_executable(08_Strings     comparingStringAndPalindrome.cpp findDuplicateString.cpp)
+add_executable(08_Strings   comparingStringAndPalindrome.cpp )
+#add_executable(08_Strings      findDuplicateString.cpp)
