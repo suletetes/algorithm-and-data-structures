@@ -15,8 +15,12 @@ int anagramCheck(char a[], char b[]) {
     }
     for (i = 0; b[i] != '\0'; i++) {
         h[a[i] - 97]--;
+        if (h[a[i] - 97] < 0) {
+            printf("not anagram");
+            break;
+        }
     }
-    if (h[a[i] -97] <0){
-
+    if (b[i] == '\0') {
+        printf("It is anagram");
     }
 }
