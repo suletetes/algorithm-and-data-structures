@@ -1,7 +1,5 @@
 #include "iostream"
-#include "stdio.h"
-
-
+#include <cstdio>
 
 
 // An anagram is a word or phrase formed by rearranging the letters
