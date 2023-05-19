@@ -25,7 +25,7 @@ void duplicatesString2(char a[]) {
     if ((x & h) > 0) {
         printf("%c is duplicate", a[i]);
     } else {
-        h = x:h;
+        h = (x|h);
     }
 }
 
