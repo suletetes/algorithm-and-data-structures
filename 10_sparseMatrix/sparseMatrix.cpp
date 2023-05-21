@@ -43,30 +43,35 @@ struct sparse *add(struct sparse *s1, struct sparse *s2) {
     struct sparse *sum;
     int i, j, k;
     i = j = k = 0;
+
+    if (s1->n != s2->n && s1->m != s2->m)
+        return NULL;
     sum = (struct sparse *) malloc(sizeof(struct sparse));
-    sum->e = (struct element *) malloc((s1->num + s2->num) * sizeof(struct element));
+    sum->e = (struct element *) malloc((s1->num + s2 -> num) * sizeof(struct element));
     while (i < s1->num && j < s2->num) {
-        if (s1->e[i].i < s2->e[i].i)
+        if (s1->e[i].i < s2->e[j].i)
             sum->e[k++] = s1->e[i++];
-        else if (s1->e[i].i > s2->e[i].i)
-            sum->e[k++] = s2->e[i++];
+        else if (s1->e[i].i > s2->e[j].i)
+            sum->e[k++] = s2->e[j++];
         else {
-            if (s1->e[i].j < s2->e[i].j)
+            if (s1->e[i].j < s2->e[j].j)
                 sum->e[k++] = s1->e[i++];
-            else if (s1->e[i].j > s2->e[i].j)
-                sum->e[k++] = s2->e[i++];
+            else if (s1->e[i].j > s2->e[j].j)
+                sum->e[k++] = s2->e[j++];
             else {
                 sum->e[k] = s1->e[i];
                 sum->e[k++].x = s1->e[i++].x + s2->e[j++].x;
             }
+
         }
     }
-
-    for (; i < s1->num; ++i) sum->e[k++] = s1->e[i++];
-    for (; i < s2->num; ++i) sum->e[k++] = s2->e[i++];
-//    sum->num = s1->m;
-//    sum->num = s1->n;
+    for (; i < s1->num; i++)sum->e[k++] = s1->e[i];
+    for (; j < s2->num; j++)sum->e[k++] = s2->e[j];
+    sum->m = s1->m;
+    sum->n = s1->n;
     sum->num = k;
+
+
     return sum;
 }
 
