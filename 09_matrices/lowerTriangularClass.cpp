@@ -33,12 +33,12 @@ public:
 
 void lowerTri::set(int i, int j, int x) {
     if (i >= j)
-        a[i * (i - 1) / 2 + j - 1] = x;
+        a[n * (j - 1) - (j - 2) * (j - 1) / 2 + i - j] = x;
 }
 
 int lowerTri::get(int i, int j) {
     if (i == j)
-        return a[i * (i - 1) / 2 + j - 1];
+        return a[n * (j - 1) - (j - 2) * (j - 1) / 2 + i - j];
     return 0;
 }
 
@@ -46,7 +46,7 @@ void lowerTri::display() {
     int i, j;
     for (i = 0; i < n; ++i) {
         for (j = 0; j < n; ++j) {
-            if (i == j) printf("%d ", a[i * (i - 1) / 2 + j - 1]);
+            if (i == j) printf("%d ", a[n * (j - 1) - (j - 2) * (j - 1) / 2 + i - j]);
             else printf("0 ");
         }
         printf("\n");
@@ -58,9 +58,9 @@ int main() {
     int d;
     printf("Enter dimensions ");
     cin >> d;
+
     int x;
     lowerTri lm(d);
-
     cout << "Enter all elements";
     for (int i = 1; i <= d; ++i) {
         for (int j = 1; j <= d; ++j) {
