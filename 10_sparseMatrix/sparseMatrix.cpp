@@ -50,12 +50,35 @@ struct sparse *add(struct sparse *s1, struct sparse *s2) {
             sum->e[k++] = s1->e[i++];
         else if (s1->e[i].i > s2->e[i].i)
             sum->e[k++] = s2->e[i++];
+        else {
+            if (s1->e[i].j < s2->e[i].j)
+                sum->e[k++] = s1->e[i++];
+            else if (s1->e[i].i > s2->e[i].i)
+                sum->e[k++] = s2->e[i++];
+            else {
+                sum->e[k] = s1->e[i];
+                sum->e[k++].x = s1->e[i++].x + s2->e[j++].x;
+            }
+        }
     }
+
+    for (; i < s1->num; ++i) sum->e[k++] = s1->e[i++];
+    for (; i < s2->num; ++i) sum->e[k++] = s2->e[i++];
+    sum->num = s1->m;
+    sum->num = s1->n;
+    sum->num = k;
 }
 
 int main() {
-    struct sparse s;
-    create(&s);
-    display(s);
+    struct sparse s1, s2, *s3;
+    create(&s1);
+    create(&s2);
+    s3 = add(&s1, &s2);
+    printf("First matrix\n");
+    display(s1);
+    printf("second matrix\n");
+    display(s2);
+    printf("Third matrix\n");
+    display(*s3);
     return 0;
 }
