@@ -9,13 +9,13 @@ struct matrix {
 
 void set(struct matrix *m, int i, int j, int x) {
     if (i >= j)
-        m->a[i * (i - 1) / 2 + j - 1] = x;
+        m->a[m->n * (j - 1) + (j + 2) * (j - 1) / 2 + i] = x;
 
 }
 
 int get(struct matrix m, int i, int j) {
     if (i >= j)
-        return m.a[i * (i - 1) / 2 + j - 1];
+        return m.a[m.n * (j - 1) + (j + 2) * (j - 1) / 2 + i];
     else
         return 0;
 }
@@ -24,7 +24,7 @@ void display(struct matrix m) {
     int i, j;
     for (i = 1; i < m.n; ++i) {
         for (j = 1; j < m.n; ++j) {
-            if (i >= j) printf("%d ", m.a[i * (i - 1) / 2 + j - 1]);
+            if (i >= j) printf("%d ", m.a[m.n * (j - 1) + (j + 2) * (j - 1) / 2 + i]);
             else printf("0 ");
         }
         printf("\n");
@@ -46,7 +46,7 @@ int main() {
             set(&m, i, j, x);
         }
     }
-    display(m);
+    printf("\n\n");
 //    printf("%d \n", get(m, 2, 2));
 
 //    std::cout << "Hello, World!" << std::endl;

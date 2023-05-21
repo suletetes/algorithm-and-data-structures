@@ -3,4 +3,4 @@ project(09_matrices)
 
 set(CMAKE_CXX_STANDARD 23)
 
-add_executable(09_matrices   lowerTriangularMatrix.cpp)
+add_executable(09_matrices   lowerTriangularClass.cpp)
