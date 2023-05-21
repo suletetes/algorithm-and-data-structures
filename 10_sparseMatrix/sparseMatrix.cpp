@@ -53,7 +53,7 @@ struct sparse *add(struct sparse *s1, struct sparse *s2) {
         else {
             if (s1->e[i].j < s2->e[i].j)
                 sum->e[k++] = s1->e[i++];
-            else if (s1->e[i].i > s2->e[i].i)
+            else if (s1->e[i].j > s2->e[i].j)
                 sum->e[k++] = s2->e[i++];
             else {
                 sum->e[k] = s1->e[i];
@@ -64,9 +64,10 @@ struct sparse *add(struct sparse *s1, struct sparse *s2) {
 
     for (; i < s1->num; ++i) sum->e[k++] = s1->e[i++];
     for (; i < s2->num; ++i) sum->e[k++] = s2->e[i++];
-    sum->num = s1->m;
-    sum->num = s1->n;
+//    sum->num = s1->m;
+//    sum->num = s1->n;
     sum->num = k;
+    return sum;
 }
 
 int main() {
