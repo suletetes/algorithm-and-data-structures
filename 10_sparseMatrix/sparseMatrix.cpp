@@ -39,6 +39,19 @@ void display(struct sparse s) {
     }
 }
 
+struct sparse *add(struct sparse *s1, struct sparse *s2) {
+    struct sparse *sum;
+    int i, j, k;
+    i = j = k = 0;
+    sum = (struct sparse *) malloc(sizeof(struct sparse));
+    sum->e = (struct element *) malloc((s1->num + s2->num) * sizeof(struct element));
+    while (i < s1->num && j < s2->num) {
+        if (s1->e[i].i < s2->e[i].i)
+            sum->e[k++] = s1->e[i++];
+        else if (s1->e[i].i > s2->e[i].i)
+            sum->e[k++] = s2->e[i++];
+    }
+}
 
 int main() {
     struct sparse s;
