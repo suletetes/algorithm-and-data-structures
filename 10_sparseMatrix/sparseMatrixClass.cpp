@@ -28,31 +28,39 @@ public:
         delete[] ele;
     }
 
-    void read() {
-        cout << "enter non-zero elements ";
-        for (int i = 0; i < num; ++i) {
-            cin >> ele[i].i >> ele[i].j >> ele[i].x;
-        }
-    }
+    friend istream & operator >> (istream &is, sparse &s);
 
-    void display() {
-        int k;
-        for (int i = 0; i < m; ++i) {
-            for (int j = 0; j < n; ++j) {
-                if (ele[k].i == i && ele[k].j == j)
-                    cout << ele[k++].x << " ";
-                else
-                    cout << "0 ";
-            }
-            cout << endl;
-        }
-    }
+    friend ostream & operator << (ostream &os, sparse &s);
 };
+
+istream &operator>>(istream &is, sparse &s) {
+    cout << "enter non-zero elements ";
+    for (int i = 0; i < s.num; ++i) {
+        cin >> s.ele[i].i >> s.ele[i].j >> s.ele[i].x;
+    }
+    return is;
+}
+
+ostream &operator<<(ostream &os, sparse &s) {
+    int k;
+    for (int i = 0; i < s.m; ++i) {
+        for (int j = 0; j < s.n; ++j) {
+            if (s.ele[k].i == i && s.ele[k].j == j)
+                cout << s.ele[k++].x << " ";
+            else
+                cout << "0 ";
+        }
+        cout << endl;
+    }
+    return os;
+}
+
+
 
 
 int main() {
     sparse s1(5, 5, 5);
-    s1.read();
-    s1.display();
+    cin >> s1;
+    cout << s1;
     return 0;
 }
