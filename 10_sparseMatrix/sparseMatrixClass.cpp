@@ -61,7 +61,7 @@ ostream &operator<<(ostream &os, sparse &s) {
 sparse sparse::operator+(sparse &s) {
     int i, j, k;
     if (m != s.m || n != s.n) {
-        return NULL;
+        return sparse(0,0,0);
     }
     sparse *sum = new sparse(m, n, num + s.num);
 
