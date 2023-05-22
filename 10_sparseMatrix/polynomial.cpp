@@ -1,16 +1,19 @@
 #include <stdio.h>
 #include<stdlib.h>
 
-struct Term {
+class Term {
+public:
     int coeff;
     int exp;
 };
-struct Poly {
+class Poly {
+public:
     int n;
     struct Term *terms;
+    void create(struct Poly *p);
 };
 
-void create(struct Poly *p) {
+void Poly::create(struct Poly *p) {
     int i;
     printf("Number of terms?");
     scanf("%d", &p->n);
