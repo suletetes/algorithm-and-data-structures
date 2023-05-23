@@ -69,12 +69,34 @@ int rSum(struct node *p) {
         return rSum(p->next) + p->data;
 }
 
+int max(struct node *p) {
+    int max = INT32_MIN;
+    while (p) {
+        if (p->data > max)
+            max = p->data;
+        p = p->next;
+    }
+    return max;
+}
+
+int rMax(struct node *p) {
+    int x = 0;
+    if (p == 0)
+        return INT32_MIN;
+    x = rMax(p->next);
+    if (x > p->data)
+        return x;
+    else
+        return p->data;
+}
+
 int main() {
-    int a[] = {3, 5, 7, 10, 15, 8, 12, 20};
-    create(a, 5);
+    int a[] = {3, 5, 7, 10, 15, 8, 12, 20 ,3};
+    create(a, 9);
 //    rDisplay(first);
-//    printf("Length is %d ", count(first));
-    printf("sum is %d \n", sum(first));
+//    printf("Length is %d ", rCount(first));
+//    printf("sum is %d \n", sum(first));
+    printf("the max number  is %d \n", rMax(first));
     return 0;
 }
 
