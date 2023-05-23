@@ -7,7 +7,9 @@ struct node {
 } *first = NULL;
 
 void create(int a[], int n) {
-
+    int i;
+    struct node *t, *last;
+    first = (struct node *) malloc(sizeof(struct node));
 }
 
 int main() {
