@@ -29,8 +29,16 @@ void display(struct node *p) {
     }
 }
 
+void rDisplay(struct node *p) {
+    if (p != NULL) {
+        rDisplay(p->next);
+        printf("%d ", p->data);
+    }
+}
+
 int main() {
     int a[] = {3, 5, 7, 10, 15};
+    rDisplay(first);
     create(a, 5);
     return 0;
 }
