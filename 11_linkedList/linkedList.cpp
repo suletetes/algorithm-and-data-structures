@@ -36,9 +36,54 @@ void rDisplay(struct node *p) {
     }
 }
 
+int count(struct node *p) {
+    int l = 0;
+    while (p) {
+        l++;
+        p = p->next;
+    }
+    return l;
+}
+
+int rCount(struct node *p) {
+    if (p != NULL)
+        return rCount(p->next) + 1;
+    else
+        return 0;
+
+}
+
+int sum(struct node *p) {
+    int s = 0;
+    while (p != NULL) {
+        s += p->data;
+        p = p->next;
+    }
+    return s;
+}
+
+int rSum(struct node *p) {
+    if (p == NULL)
+        return 0;
+    else
+        return rSum(p->next) + p->data;
+}
+
 int main() {
-    int a[] = {3, 5, 7, 10, 15};
-    rDisplay(first);
+    int a[] = {3, 5, 7, 10, 15, 8, 12, 20};
     create(a, 5);
+//    rDisplay(first);
+//    printf("Length is %d ", count(first));
+    printf("sum is %d \n", sum(first));
     return 0;
 }
+
+
+
+
+
+
+
+
+
+
