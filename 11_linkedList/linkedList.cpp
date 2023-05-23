@@ -90,13 +90,46 @@ int rMax(struct node *p) {
         return p->data;
 }
 
+struct node *lSearch(struct node *p, int key) {
+    struct node *q;
+
+    while (p != NULL) {
+        if (key == p->data) {
+            q->next = p->next;
+            p->next = first;
+            first = p;
+            return p;
+        }
+        q = p;
+        p = p->next;
+    }
+    return NULL;
+
+}
+
+struct node *rSearch(struct node *p, int key) {
+    if (p == NULL)
+        return NULL;
+    if (key == p->data)
+        return p;
+    return rSearch(p->next, key);
+
+}
+
 int main() {
-    int a[] = {3, 5, 7, 10, 15, 8, 12, 20 ,3};
+    struct node *temp;
+    int a[] = {3, 5, 7, 10, 15, 8, 12, 20, 3};
     create(a, 9);
 //    rDisplay(first);
 //    printf("Length is %d ", rCount(first));
 //    printf("sum is %d \n", sum(first));
-    printf("the max number  is %d \n", rMax(first));
+//    printf("the max number  is %d \n", rMax(first));
+    temp = lSearch(first, 20);
+    if (temp)
+        printf("Key is found %d\n", temp->data);
+    else
+        printf("Key is not found");
+    display(first);
     return 0;
 }
 
