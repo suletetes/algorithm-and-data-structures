@@ -154,10 +154,34 @@ void sortedInsert(struct node *p, int x) {
     }
 }
 
+int Delete(struct node *p, int index) {
+    struct node *q = NULL;
+    int x = -1, i;
+    if (index < 1 || index > count(p)) {
+        return -1;
+    }
+    if (index == 1) {
+        q = first;
+        x = first->data;
+        first = first->next;
+        free(q);
+        return x;
+    } else {
+        for (i = 0; i < index - 1; ++i) {
+            q = p;
+            p = p->next;
+        }
+        q->next = p->next;
+        x = p->data;
+        delete p;
+        return x;
+    }
+}
+
 int main() {
 //    struct node *temp;
     int a[] = {3, 5, 7, 10, 8, 12, 15, 20};
-    create(a, 8);
+    create(a, 9);
 //    rDisplay(first);
 //    printf("Length is %d ", rCount(first));
 //    printf("sum is %d \n", sum(first));
@@ -167,7 +191,9 @@ int main() {
 //        printf("Key is found %d\n", temp->data);
 //    else
 //        printf("Key is not found");
-    insert(first, 0, 10); // insert function can be used to create linked list
+//    insert(first, 0, 10); // insert function can be used to create linked list
+//    sortedInsert(first, 35);
+    Delete(first, 0);
     display(first);
     return 0;
 }
