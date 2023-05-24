@@ -1,6 +1,6 @@
 #include <iostream>
 #include "cstdlib"
-
+// functions starting with r are recursive functions
 struct node {
     int data;
     struct node *next;
