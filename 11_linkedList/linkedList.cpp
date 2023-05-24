@@ -132,20 +132,42 @@ void insert(struct node *p, int index, int x) {
     }
 }
 
+void sortedInsert(struct node *p, int x) {
+    struct node *t, *q = NULL;
+    t = (struct node *) malloc(sizeof(struct node));
+    t->data = x;
+    t->next = NULL;
+    if (first == NULL)
+        first = t;
+    else {
+        while (p && p->data < x) {
+            q = p;
+            p = p->next;
+        }
+        if (p == first) {
+            t->next = first;
+            first = t;
+        } else {
+            t->next = q->next;
+            first = t;
+        }
+    }
+}
 
 int main() {
-    struct node *temp;
-    int a[] = {3, 5, 7, 10, 15, 8, 12, 20, 3};
-    create(a, 9);
+//    struct node *temp;
+    int a[] = {3, 5, 7, 10, 8, 12, 15, 20};
+    create(a, 8);
 //    rDisplay(first);
 //    printf("Length is %d ", rCount(first));
 //    printf("sum is %d \n", sum(first));
 //    printf("the max number  is %d \n", rMax(first));
-    temp = lSearch(first, 20);
-    if (temp)
-        printf("Key is found %d\n", temp->data);
-    else
-        printf("Key is not found");
+//    temp = lSearch(first, 20);
+//    if (temp)
+//        printf("Key is found %d\n", temp->data);
+//    else
+//        printf("Key is not found");
+    insert(first, 0, 10); // insert function can be used to create linked list
     display(first);
     return 0;
 }
