@@ -1,5 +1,6 @@
 #include <iostream>
 #include "cstdlib"
+
 // functions starting with r are recursive functions
 struct node {
     int data;
@@ -115,6 +116,22 @@ struct node *rSearch(struct node *p, int key) {
     return rSearch(p->next, key);
 
 }
+
+void insert(struct node *p, int index, int x) {
+    struct node *t;
+    if (index < 0 || index > count(p))
+        return;
+    t = (struct node *) malloc(sizeof(struct node));
+    t->data = x;
+    if (index == 0) {
+        t->next = first;
+        first = t;
+    } else {
+        t->next = first;
+        first = t;
+    }
+}
+
 
 int main() {
     struct node *temp;
