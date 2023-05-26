@@ -190,6 +190,7 @@ int isSorted(struct node *p) {
 }
 int duplicates(struct node *p);
 int codeReverse(struct node *p);
+int loopCheck(struct node *p);
 
 int main() {
 //    struct node *temp;
