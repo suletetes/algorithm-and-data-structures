@@ -188,6 +188,8 @@ int isSorted(struct node *p) {
     }
     return 1;
 }
+int duplicates(struct node *p);
+
 
 int main() {
 //    struct node *temp;
