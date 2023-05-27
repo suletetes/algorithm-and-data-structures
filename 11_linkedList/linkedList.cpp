@@ -193,8 +193,9 @@ int loopCheck(struct node *p);
 
 int main() {
 //    struct node *temp;
-    int a[] = {3, 5, 7, 8, 10, 12, 15, 20};
-    create(a, 8);
+
+    int a[] = {3, 5, 7, 8, 10, 12, 15, 18, 19, 20};
+    create(a, 10);
 
 //    rDisplay(first);
 //    printf("Length is %d ", rCount(first));
