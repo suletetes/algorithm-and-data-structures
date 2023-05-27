@@ -4,4 +4,5 @@ project(11_linkedList)
 set(CMAKE_CXX_STANDARD 23)
 
 add_executable(11_linkedList linkedList.cpp)
+
 #add_executable(11_linkedList linkedList.cpp linkedListClass.cpp linearDoublyLinkedList.cpp circularDoublyLinkedList.cpp circularLinkedList.cpp linkedListClass.cpp)
