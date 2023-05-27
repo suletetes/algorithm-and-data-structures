@@ -1,7 +1,6 @@
 #include <iostream>
 #include "cstdlib"
 
-// functions starting with r are recursive functions
 struct node {
     int data;
     struct node *next;
@@ -29,7 +28,7 @@ void display(struct node *p) {
         p = p->next;
     }
 }
-
+// functions starting with r are recursive functions
 void rDisplay(struct node *p) {
     if (p != NULL) {
         rDisplay(p->next);
@@ -196,6 +195,7 @@ int main() {
 //    struct node *temp;
     int a[] = {3, 5, 7, 8, 10, 12, 15, 20};
     create(a, 8);
+
 //    rDisplay(first);
 //    printf("Length is %d ", rCount(first));
 //    printf("sum is %d \n", sum(first));
@@ -208,6 +208,7 @@ int main() {
 //    insert(first, 0, 10); // insert function can be used to create linked list
 //    sortedInsert(first, 35);
 //    Delete(first, 1);
+
     if (isSorted(first)) {
         printf("Is  sorted \n");
     } else {
