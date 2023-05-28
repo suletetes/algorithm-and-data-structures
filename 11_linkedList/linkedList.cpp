@@ -204,9 +204,34 @@ int removeDuplicates(struct node *p) {
     }
 };
 
-int codeReverse(struct node *p);
+int reverse(struct node *p) {
+    int *a, i = 0;
+    struct node *q;
+    a = (int *) malloc(sizeof(int) * count(p));
+    while (q != NULL) {
+        a[i] = q->data;
+        q = q->next;
+        i++;
+    }
+    q = p;
+    i--;
+    while (q != NULL) {
+        q->data = a[i];
+        q = q->next;
+        i--;
+    }
+};
 
-int loopCheck(struct node *p);
+int reverse2(struct node *p) {
+    struct node *q = NULL, *r = NULL;
+    while (p != NULL) {
+        r = q;
+        q = p;
+        p = p->next;
+        q->next = r;
+    }
+    first = q;
+};
 
 int main() {
 //    struct node *temp;
@@ -227,13 +252,14 @@ int main() {
 //    sortedInsert(first, 35);
 //    Delete(first, 1);
 
-//    if (isSorted(first)) {
+//    if (isSorted(first)) {  //
 //        printf("Is  sorted \n");
 //    } else {
 //        printf("Is not sorted \n");
 //    }
-
-    removeDuplicates(first);
+//    removeDuplicates(first);  // remove duplicates elements
+//    reverse(first); // reverses linkedList elements
+    reverse2(first); // reverses linkedList elements
     display(first);
     return 0;
 }
