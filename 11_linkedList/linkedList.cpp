@@ -28,6 +28,7 @@ void display(struct node *p) {
         p = p->next;
     }
 }
+
 // functions starting with r are recursive functions
 void rDisplay(struct node *p) {
     if (p != NULL) {
@@ -187,15 +188,31 @@ int isSorted(struct node *p) {
     }
     return 1;
 }
-int duplicates(struct node *p);
+
+int removeDuplicates(struct node *p) {
+    struct node *q = p->next;
+    while (q != NULL) {
+        if (p->data != q->data) {
+            p = q;
+            q = q->next;
+        } else {
+            p->next = q->next;
+            free(q);
+            q = p->next;
+        }
+
+    }
+};
+
 int codeReverse(struct node *p);
+
 int loopCheck(struct node *p);
 
 int main() {
 //    struct node *temp;
 
-    int a[] = {3, 5, 7, 8, 10, 12, 15, 18, 19, 20};
-    create(a, 10);
+    int a[] = {3, 5, 7, 8, 8, 10, 12, 15, 18, 19, 20};
+    create(a, 11);
 
 //    rDisplay(first);
 //    printf("Length is %d ", rCount(first));
@@ -210,11 +227,13 @@ int main() {
 //    sortedInsert(first, 35);
 //    Delete(first, 1);
 
-    if (isSorted(first)) {
-        printf("Is  sorted \n");
-    } else {
-        printf("Is not sorted \n");
-    }
+//    if (isSorted(first)) {
+//        printf("Is  sorted \n");
+//    } else {
+//        printf("Is not sorted \n");
+//    }
+
+    removeDuplicates(first);
     display(first);
     return 0;
 }
