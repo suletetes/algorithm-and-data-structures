@@ -294,16 +294,31 @@ void merge(struct node *p, struct node *q) {
     if (q) last->next = q;
 }
 
+int isLoop(struct node *f) {
+    struct node *p, *q;
+    p = q = f;
+    do {
+        p = p->next;
+        q = q->next;
+        q = q ? q->next : q;
+    } while (p && q && p != q);
+    if (p == q)
+        return 1;
+    else
+        return 0;
+}
 
 int main() {
 //    struct node *temp;
-    struct node *temp, *t1, *t2;
+    struct node *t1, *t2;
 
     int a[] = {3, 5, 7, 8, 8, 10, 12, 15, 18, 19, 20};
-    create(a, 11);
-    t1 = first->next->next;
-    t2 = first->next->next->next->next;
-    t2->next = t1;
+//    int a[] = {3, 5, 7, 8,  20};
+//    create(a, 5);
+//    t1 = first->next->next;
+//    t2 = first->next->next->next->next;
+//    t2->next = t1;
+//    printf("%d\n", isLoop(first));
 
 //    int b[] = {3, 5, 7, 8, 20};
 //    create2(b, 5);
@@ -333,7 +348,7 @@ int main() {
 //    reverse3(NULL,first); // reverses linkedList elements
     printf("first\n");
     display(first);
-    printf("\n\n");
+//    printf("\n\n");
 
 //    printf("second\n");
 //    display(second);
