@@ -4,7 +4,7 @@
 struct node {
     int data;
     struct node *next;
-} *first = NULL;
+} *first = NULL, *second = NULL, *third = NULL;
 
 void create(int a[], int n) {
     int i;
@@ -13,6 +13,22 @@ void create(int a[], int n) {
     first->data = a[0];
     first->next = NULL;
     last = first;
+    for (i = 1; i < n; ++i) {
+        t = (struct node *) malloc(sizeof(struct node));
+        t->data = a[i];
+        t->next = NULL;
+        last->next = t;
+        last = t;
+    }
+}
+
+void create2(int a[], int n) {
+    int i;
+    struct node *t, *last;
+    second = (struct node *) malloc(sizeof(struct node));
+    second->data = a[0];
+    second->next = NULL;
+    last = second;
     for (i = 1; i < n; ++i) {
         t = (struct node *) malloc(sizeof(struct node));
         t->data = a[i];
@@ -207,7 +223,7 @@ int removeDuplicates(struct node *p) {
 void reverse(struct node *p) {
     int *a, i = 0;
     struct node *q;
-    a = (int *) malloc(sizeof(int)*count(p));
+    a = (int *) malloc(sizeof(int) * count(p));
     while (q != NULL) {
         a[i] = q->data;
         q = q->next;
@@ -247,7 +263,9 @@ int main() {
 //    struct node *temp;
 
     int a[] = {3, 5, 7, 8, 8, 10, 12, 15, 18, 19, 20};
+    int b[] = {3, 5, 7, 8, 20};
     create(a, 11);
+    create2(b, 5);
 
 //    rDisplay(first);
 //    printf("Length is %d ", rCount(first));
@@ -271,7 +289,13 @@ int main() {
 //    reverse(first); // reverses linkedList elements
 //    reverse2(first); // reverses linkedList elements
 //    reverse3(NULL,first); // reverses linkedList elements
+    printf("first\n");
     display(first);
+    printf("\n\n");
+
+    printf("second\n");
+    display(second);
+    printf("\n\n");
     return 0;
 
 }
