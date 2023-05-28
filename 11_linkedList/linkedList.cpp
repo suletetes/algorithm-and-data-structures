@@ -259,6 +259,13 @@ void reverse3(struct node *q, struct node *p) {
 
 }
 
+void concat(struct node *p, struct node *q) {
+    third = p;
+    while (p->next != NULL)
+        p = p->next;
+    p->next = q;
+}
+
 int main() {
 //    struct node *temp;
 
@@ -266,7 +273,7 @@ int main() {
     int b[] = {3, 5, 7, 8, 20};
     create(a, 11);
     create2(b, 5);
-
+    concat(first, second);
 //    rDisplay(first);
 //    printf("Length is %d ", rCount(first));
 //    printf("sum is %d \n", sum(first));
@@ -295,6 +302,10 @@ int main() {
 
     printf("second\n");
     display(second);
+    printf("\n\n");
+
+    printf("concatenated\n");
+    display(third);
     printf("\n\n");
     return 0;
 
