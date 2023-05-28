@@ -204,10 +204,10 @@ int removeDuplicates(struct node *p) {
     }
 };
 
-int reverse(struct node *p) {
+void reverse(struct node *p) {
     int *a, i = 0;
     struct node *q;
-    a = (int *) malloc(sizeof(int) * count(p));
+    a = (int *) malloc(sizeof(int)*count(p));
     while (q != NULL) {
         a[i] = q->data;
         q = q->next;
@@ -232,6 +232,16 @@ int reverse2(struct node *p) {
     }
     first = q;
 };
+
+void reverse3(struct node *q, struct node *p) {
+    if (p) {
+        reverse3(p, p->next);
+        p->next = q;
+    } else {
+        first = q;
+    }
+
+}
 
 int main() {
 //    struct node *temp;
@@ -259,9 +269,11 @@ int main() {
 //    }
 //    removeDuplicates(first);  // remove duplicates elements
 //    reverse(first); // reverses linkedList elements
-    reverse2(first); // reverses linkedList elements
+//    reverse2(first); // reverses linkedList elements
+//    reverse3(NULL,first); // reverses linkedList elements
     display(first);
     return 0;
+
 }
 
 
