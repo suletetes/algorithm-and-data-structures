@@ -266,14 +266,49 @@ void concat(struct node *p, struct node *q) {
     p->next = q;
 }
 
+void merge(struct node *p, struct node *q) {
+    struct node *last;
+    if (p->data < q->data) {
+        third = last = p;
+        p = p->next;
+        third->next = NULL;
+    } else {
+        third = last = q;
+        q = q->next;
+        third->next = NULL;
+    }
+    while (p && q) {
+        if (p->data < q->data) {
+            last->next = p;
+            last = p;
+            p = p->next;
+            last->next = NULL;
+        } else {
+            last->next = q;
+            last = q;
+            q = q->next;
+            last->next = NULL;
+        }
+    }
+    if (p) last->next = p;
+    if (q) last->next = q;
+}
+
+
 int main() {
 //    struct node *temp;
+    struct node *temp, *t1, *t2;
 
     int a[] = {3, 5, 7, 8, 8, 10, 12, 15, 18, 19, 20};
-    int b[] = {3, 5, 7, 8, 20};
     create(a, 11);
-    create2(b, 5);
-    concat(first, second);
+    t1 = first->next->next;
+    t2 = first->next->next->next->next;
+    t2->next = t1;
+
+//    int b[] = {3, 5, 7, 8, 20};
+//    create2(b, 5);
+//    concat(first, second);
+//    merge(first, second);
 //    rDisplay(first);
 //    printf("Length is %d ", rCount(first));
 //    printf("sum is %d \n", sum(first));
@@ -300,13 +335,13 @@ int main() {
     display(first);
     printf("\n\n");
 
-    printf("second\n");
-    display(second);
-    printf("\n\n");
-
-    printf("concatenated\n");
-    display(third);
-    printf("\n\n");
+//    printf("second\n");
+//    display(second);
+//    printf("\n\n");
+//
+//    printf("concatenated\n");
+//    display(third);
+//    printf("\n\n");
     return 0;
 
 }
