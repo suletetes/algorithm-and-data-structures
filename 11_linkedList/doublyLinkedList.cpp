@@ -30,25 +30,25 @@ void create(int A[], int n) {
     }
 }
 
-void Reverse1(struct Node *p) {
-    int *A, i = 0;
-    struct Node *q = p;
-
-    A = (int *) malloc(sizeof(int) * count(p));
-
-    while (q != NULL) {
-        A[i] = q->data;
-        q = q->next;
-        i++;
-    }
-    q = p;
-    i--;
-    while (q != NULL) {
-        q->data = A[i];
-        q = q->next;
-        i--;
-    }
-}
+//void Reverse1(struct Node *p) {
+//    int *A, i = 0;
+//    struct Node *q = p;
+//
+//    A = (int *) malloc(sizeof(int) * count(p));
+//
+//    while (q != NULL) {
+//        A[i] = q->data;
+//        q = q->next;
+//        i++;
+//    }
+//    q = p;
+//    i--;
+//    while (q != NULL) {
+//        q->data = A[i];
+//        q = q->next;
+//        i--;
+//    }
+//}
 
 void Reverse2(struct Node *p) {
     struct Node *q = NULL, *r = NULL;
