@@ -1,6 +1,6 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
+#include <cstdio>
+#include <cstdlib>
+#include <cmath>
 
 struct Node {
     int coeff;
@@ -9,7 +9,7 @@ struct Node {
 } *poly = NULL;
 
 void create() {
-    struct Node *t, *last = NULL;
+    struct Node *t, *last = nullptr;
     int num, i;
 
     printf("Enter number of terms");
@@ -19,8 +19,8 @@ void create() {
     for (i = 0; i < num; i++) {
         t = (struct Node *) malloc(sizeof(struct Node));
         scanf("%d%d", &t->coeff, &t->exp);
-        t->next = NULL;
-        if (poly == NULL) {
+        t->next = nullptr;
+        if (poly == nullptr) {
             poly = last = t;
         } else {
             last->next = t;
