@@ -37,6 +37,12 @@ int pop(struct stack *st){
     return x;
 }
 int main() {
-    std::cout << "Hello, World!" << std::endl;
+    struct stack st;
+    create(&st);
+    push(&st, 10);
+    push(&st, 40);
+    push(&st, 70);
+    push(&st, 30);
+    push(&st, 50);
     return 0;
 }
