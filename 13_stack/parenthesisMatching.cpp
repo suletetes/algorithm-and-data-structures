@@ -61,5 +61,11 @@ int isBalanced(char *exp) {
 
 int main() {
     char *exp = "((a+b)*(c-d))";
+    if (isBalanced(exp))
+        printf("The brackets are balanced");
+    else
+        printf("The brackets are balanced");
+
+//    printf("%d ", isBalanced(exp));
     return 0;
 }
