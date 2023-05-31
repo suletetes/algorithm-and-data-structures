@@ -1,14 +1,12 @@
-#include <cstdio>
-#include <cstdlib>
-#include "string"
-
+#include "stdio.h"
+#include "stdlib.h"
 
 struct node {
-    char data;
+    int data;
     struct node *next;
 } *top = NULL;
 
-char push(char x) {
+void push(int x) {
     struct node *t;
     t = (struct node *) malloc(sizeof(struct node));
     if (t == NULL) {
@@ -20,9 +18,9 @@ char push(char x) {
     }
 }
 
-char pop() {
+int pop() {
     struct node *t;
-    char x = -1;
+    int x = -1;
     if (top == NULL) {
         printf("Stack is empty\n");
     } else {
@@ -61,14 +59,6 @@ int isBalanced(char *exp) {
         return 0;
 }
 
-int pre(char x) {
-    if (x == '+' || x == '-')
-        return 1;
-    else if (x == '*' || x == '/')
-        return 2;
-    return 0;
-}
-
 int isOperand(char x) {
     if (x == '+' || x == '-' || x == '*' || x == '/')
         return 0;
@@ -77,31 +67,38 @@ int isOperand(char x) {
 
 }
 
-char *intoPost(char *infix) {
-    int i = 0, j = 0;
-    char *postfix;
-    int len = strlen(infix);
-    postfix = (char *) malloc((len + 2) * sizeof(char));
-    while (infix[i] != '\0') {
-        if (isOperand(infix[i]))
-            postfix[j++] = infix[i++];
+int eval(char *postFix) {
+    int i = 0;
+    int x1, x2, r;
+    for (i = 0; postFix[i] != '\0'; ++i) {
+        if (isOperand(postFix[i]))
+            push(postFix[i] - '0');
         else {
-            if (pre(infix[i]) > pre(top->data))
-                push(infix[i++]);
-            else {
-                postfix[j++] = pop();
+            x2 = pop();
+            x1 = pop();
+            switch (postFix[i]) {
+                case '+':
+                    r = x1 + x2;
+                    break;
+                case '-':
+                    r = x1 - x2;
+                    break;
+                case '*':
+                    r = x1 * x2;
+                    break;
+                case '/':
+                    r = x1 / x2;
+                    break;
             }
+            push(r);
         }
     }
-    while (top != NULL)
-        postfix[j++] = pop();
-    postfix[j] = '\0';
-    return postfix;
+    return top->data;
 }
 
 int main() {
-    char *infix = "a+b*c";
-    push("#");
-    char *postfix
+    char *postFix = "234*+82/-";
+    printf("result is %d\n", eval(postFix));
+
     return 0;
 }

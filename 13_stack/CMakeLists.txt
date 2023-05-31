@@ -3,5 +3,4 @@ project(13_stack)
 
 set(CMAKE_CXX_STANDARD 23)
 
-add_executable(13_stack infixToPostFixConversion.cpp)
-#add_executable(13_stack    postFix.cpp)
+add_executable(13_stack  evaluationOfPostFix.cpp)
