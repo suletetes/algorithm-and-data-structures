@@ -47,3 +47,21 @@ int stack::pop() {
     }
     return x;
 }
+
+void stack::display() {
+    node *p = top;
+    while (p != NULL) {
+        cout << p->data << " ";
+        p = p->next;
+    }
+    cout << endl;
+}
+
+int main() {
+    stack stk;
+    stk.push(10);
+    stk.push(20);
+    stk.push(40);
+    stk.display();
+    cout << stk.pop();
+}
