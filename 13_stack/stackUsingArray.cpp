@@ -19,7 +19,23 @@ void display(struct stack st){
     printf("\n");
 
 }
-
+void push(struct stack *st, int x){
+    if(st->top==st->size-1)
+        printf("stack overflow");
+    else{
+        st->top++;
+        st->s[st->top] =x;
+    }
+}
+int pop(struct stack *st){
+    int x =-1;
+    if(st->top==-1)
+        printf("stack underflow\n");
+    else{
+        x = st->s[st->top--];
+    }
+    return x;
+}
 int main() {
     std::cout << "Hello, World!" << std::endl;
     return 0;
