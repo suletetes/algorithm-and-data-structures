@@ -3,4 +3,5 @@ project(13_stack)
 
 set(CMAKE_CXX_STANDARD 23)
 
-add_executable(13_stack stackUsingArray.cpp stackUsingLinkedList.cpp stackUsingLinkedLIstClass.cpp parenthesisMatching.cpp infixToPostFixConversion.cpp postFix.cpp)
+add_executable(13_stack stackUsingArray.cpp)
+#add_executable(13_stack stackUsingArray.cpp stackUsingLinkedList.cpp stackUsingLinkedLIstClass.cpp parenthesisMatching.cpp infixToPostFixConversion.cpp postFix.cpp)
