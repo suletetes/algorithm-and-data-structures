@@ -77,6 +77,7 @@ int main() {
     push(&st, 50);
     printf("%d \n", pop(&st));
     printf("%d \n", pop(&st));
+    printf("peek value is %d \n", peek(st, 1));
 //    printf("%d \n", pop(&st));
     display(st);
     return 0;
