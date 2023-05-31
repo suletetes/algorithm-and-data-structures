@@ -11,10 +11,23 @@ void push(int x) {
     t = (struct node *) malloc(sizeof(struct node));
     if (t == NULL) {
         printf("stack is full\n");
-    }else {
+    } else {
         t->data = x;
         t->next = top;
         top = t;
+    }
+}
+
+int pop() {
+    struct node *t;
+    int x = -1;
+    if (top == NULL) {
+        printf("Stack is empty\n");
+    } else {
+        t = top;
+        top = top.next;
+        x = t->data;
+        free(t);
     }
 }
 
