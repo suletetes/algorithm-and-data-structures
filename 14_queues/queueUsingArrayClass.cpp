@@ -29,7 +29,40 @@ public:
     void display();
 };
 
+void queue::enqueue(int x) {
+    if (rear == size - 1) {
+        printf("queue is full");
+    } else {
+        rear++;
+        q[rear] = x;
+    }
+}
+
+int queue::dequeue() {
+    int x = -1;
+    if (front == rear) {
+        printf("queue is empty");
+    } else {
+        x = q[front + 1];
+        front++;
+    }
+    return x;
+}
+
+void queue::display() {
+    for (int i = front+1; i <= rear;  ++i) {
+        printf("%d ", q[i]);
+    }
+    printf("\n");
+}
+
 int main() {
 
+    queue q(5);
+    q.enqueue(10);
+    q.enqueue(20);
+    q.enqueue(30);
+    q.enqueue(40);
+    q.display();
     return 0;
 }
