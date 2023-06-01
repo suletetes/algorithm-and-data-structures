@@ -3,4 +3,4 @@ project(14_queues)
 
 set(CMAKE_CXX_STANDARD 23)
 
-add_executable(14_queues  circularQueue.cpp queueUsinglinkedList.cpp)
+add_executable(14_queues   queueUsinglinkedList.cpp)
