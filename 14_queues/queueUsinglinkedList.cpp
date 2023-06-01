@@ -39,11 +39,23 @@ int dequeue() {
     return x;
 }
 
-void display(){
-    struct node
+void display() {
+    struct node *p;
+    while (p) {
+        printf("%d ", p->data);
+        p = p->next;
+    }
+    printf("\n");
 }
 
 
 int main() {
+    enqueue(10);
+    enqueue(10);
+    enqueue(10);
+    enqueue(10);
+    display();
+    return 0;
 
 }
+
