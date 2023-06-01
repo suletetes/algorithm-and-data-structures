@@ -13,7 +13,9 @@ void create(struct queue *q, int size) {
     q->front = q->rear = -1;
     q->q = (int *) malloc(q->size * sizeof(int));
 }
-
+void enqueue(int x){
+    if ()
+}
 
 int main() {
     struct queue q;
