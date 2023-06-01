@@ -51,10 +51,12 @@ void display() {
 
 int main() {
     enqueue(10);
-    enqueue(10);
-    enqueue(10);
-    enqueue(10);
+    enqueue(40);
+    enqueue(20);
+    enqueue(30);
     display();
+
+    printf("%d ", dequeue());
     return 0;
 
 }
