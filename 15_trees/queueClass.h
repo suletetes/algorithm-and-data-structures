@@ -21,28 +21,28 @@ private:
     int front;
     int rear;
     int size;
-    int *q;
+    node **q;
 public:
     queue() {
         front = rear = -1;
         size = 10;
-        q = new int[size];
+        q = new node*[size];
     }
 
     queue(int size) {
         front = rear = -1;
         this->size = size;
-        q = new int[this->size];
+        q = new node*[this->size];
     }
 
-    int dequeue();
+    node* dequeue();
 
-    void enqueue(int x);
+    void enqueue(node *x);
 
     void display();
 };
 
-void queue::enqueue(int x) {
+void queue::enqueue(node *x) {
     if (rear == size - 1) {
         printf("queue is full");
     } else {
@@ -51,8 +51,8 @@ void queue::enqueue(int x) {
     }
 }
 
-int queue::dequeue() {
-    int x = -1;
+node* queue::dequeue() {
+    node* x = NULL;
     if (front == rear) {
         printf("queue is empty");
     } else {
@@ -67,17 +67,6 @@ void queue::display() {
         printf("%d ", q[i]);
     }
     printf("\n");
-}
-
-int main() {
-
-    queue q(5);
-    q.enqueue(10);
-    q.enqueue(20);
-    q.enqueue(30);
-    q.enqueue(40);
-    q.display();
-    return 0;
 }
 
 #endif //INC_15_TREES_QUEUECLASS_H
