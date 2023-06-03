@@ -63,7 +63,10 @@ void postOrder(struct Node *p) {
 }
 int main() {
     treeCreate();
+    printf("preOrder ");
     preOrder(root);
+    printf("\npost Order ");
+    postOrder(root);
 
     return 0;
 }
