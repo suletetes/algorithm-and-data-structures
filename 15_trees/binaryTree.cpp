@@ -1,17 +1,18 @@
 #include "stdio.h"
 #include "stdlib.h"
+#include "queue.h"
 
-struct node *root = NULL;
+struct Node *root = NULL;
 
-void create() {
-    struct node *p, *t;
+void treeCreate() {
+    struct Node *p, *t;
     int x;
-    struct queue q;
+    struct Queue q;
     create(&q, 100);
 
     printf("enter root value ");
     scanf("%d", &x);
-    root = (struct node *) malloc(sizeof(struct node));
+    root = (struct Node *) malloc(sizeof(struct Node));
     root->data = x;
     root->lchild = root->rchild = NULL;
     enqueue(&q, root);
@@ -20,7 +21,7 @@ void create() {
         printf("Enter left child ");
         scanf("%d", &x);
         if (x != -1) {
-            t = (struct node *) malloc(sizeof(struct node));
+            t = (struct Node *) malloc(sizeof(struct Node));
             t->data = x;
             t->lchild = t->rchild = NULL;
             p->lchild = t;
@@ -29,7 +30,7 @@ void create() {
         printf("Enter right child ");
         scanf("%d", &x);
         if (x != -1) {
-            t = (struct node *) malloc(sizeof(struct node));
+            t = (struct Node *) malloc(sizeof(struct Node));
             t->data = x;
             t->lchild = t->rchild = NULL;
             p->rchild = t;
@@ -38,7 +39,7 @@ void create() {
     }
 }
 
-void preOrder(struct node *p){
+void preOrder(struct Node *p){
     if (p){
         printf("%d ", p->data);
         preOrder(p->lchild);
@@ -47,7 +48,7 @@ void preOrder(struct node *p){
 }
 int main() {
     create();
-
+    preOrder(root);
 
 
 }
