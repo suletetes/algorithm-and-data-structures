@@ -18,7 +18,7 @@ void treeCreate() {
     enqueue(&q, root);
     while (!isEmpty(q)) {
         p = dequeue(&q);
-        printf("Enter left child ");
+        printf("Enter left child of %d ", p->data);
         scanf("%d", &x);
         if (x != -1) {
             t = (struct Node *) malloc(sizeof(struct Node));
@@ -27,7 +27,7 @@ void treeCreate() {
             p->lchild = t;
             enqueue(&q, t);
         }
-        printf("Enter right child ");
+        printf("Enter right child of %d ", p->data);
         scanf("%d", &x);
         if (x != -1) {
             t = (struct Node *) malloc(sizeof(struct Node));
@@ -47,8 +47,8 @@ void preOrder(struct Node *p){
     }
 }
 int main() {
-    create();
+    treeCreate();
     preOrder(root);
 
-
+    return 0;
 }
