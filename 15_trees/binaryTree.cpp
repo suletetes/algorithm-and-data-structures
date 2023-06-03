@@ -38,8 +38,16 @@ void create() {
     }
 }
 
-
+void preOrder(struct node *p){
+    if (p){
+        printf("%d ", p->data);
+        preOrder(p->lchild);
+        preOrder(p->rchild);
+    }
+}
 int main() {
+    create();
+
 
 
 }
