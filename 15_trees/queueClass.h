@@ -4,10 +4,17 @@
 
 #ifndef INC_15_TREES_QUEUECLASS_H
 #define INC_15_TREES_QUEUECLASS_H
+
 #include "iostream"
 
 using namespace std;
 
+class node {
+public:
+    node *lchild;
+    int data;
+    node *rchild;
+};
 
 class queue {
 private:
@@ -56,7 +63,7 @@ int queue::dequeue() {
 }
 
 void queue::display() {
-    for (int i = front+1; i <= rear;  ++i) {
+    for (int i = front + 1; i <= rear; ++i) {
         printf("%d ", q[i]);
     }
     printf("\n");
