@@ -73,8 +73,26 @@ struct node *rInsert(struct node *p, int key) {
     return p;
 }
 
-int height(struct node *p){
+int height(struct node *p) {
+    int x, y;
+    if (p == NULL) return 0;
+    x = height(p->lchild);
+    y = height(p->rchild);
+    return x > y ? x + 1 : y + 1;
+}
 
+struct node *inPre(struct node *p) {
+    while (p && p->rchild != NULL) {
+        p = p->rchild;
+    }
+    return p;
+}
+
+struct node *inSucc(struct node *p) {
+    while (p && p->lchild != NULL) {
+        p = p->lchild;
+    }
+    return p;
 }
 
 struct node *Delete(struct node *p, int key) {
