@@ -73,7 +73,20 @@ struct node *rInsert(struct node *p, int key) {
     return p;
 }
 
+int height(struct node *p){
+
+}
+
 struct node *Delete(struct node *p, int key) {
+    struct node *q;
+    if (p == NULL)
+        return NULL;
+    if (p->lchild == NULL && p->rchild == NULL) {
+        if (p == root)
+            root = NULL;
+        free(p);
+        return NULL;
+    }
     if (key < p->data)
         p->lchild = Delete(p->lchild, key);
     else if (key > p->data)
@@ -83,6 +96,10 @@ struct node *Delete(struct node *p, int key) {
             q = inPre(p->lchild);
             p->data = q->data;
             p->lchild = Delete(p->lchild, q->data);
+        } else {
+            q = inSucc(p->lchild);
+            p->data = q->data;
+            p->rchild = Delete(p->rchild, q->data);
         }
     }
 }
