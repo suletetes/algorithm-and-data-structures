@@ -1,6 +1,7 @@
 #include <cstdio>
 #include <cstdlib>
 #include "queueClass.h"
+#include "stack.h"
 
 
 class tree {
@@ -116,6 +117,10 @@ int tree::height(struct node *root) {
         return x + 1;
     else
         return y + 1;
+
+}
+void iPreOrder(struct node *p){
+    struct stack stk;
 
 }
 
