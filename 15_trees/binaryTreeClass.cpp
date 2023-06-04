@@ -1,7 +1,8 @@
 #include <cstdio>
 #include <cstdlib>
-#include "stack.h"
+//#include "stack.h"
 #include "queueClass.h"
+#include "queue.h"
 
 
 class tree {
@@ -121,30 +122,48 @@ int tree::height(struct node *root) {
 
 }
 
-void iPreOrder(struct node *p) {
-    struct stack stk;
-    create(&stk, 100);
-    while (p || !isEmpty(stk)) {
-        if (p) {
-            printf("%d ", p->data);
-            push(&stk, p);
-            p = p->lchild;
-        } else {
-            p = pop(&stk);
-            p = p->rchild;
+//void iPreOrder(struct node *p) { #todo 292
+//    struct stack stk;
+//    createStack(&stk, 100);
+//    while (p || !isEmptyStack(stk)) {
+//        if (p) {
+//            printf("%d ", p->data);
+//            pushStack(&stk, p);
+//            p = p->lchild;
+//        } else {
+//            p = popStack(&stk);
+//            p = p->rchild;
+//        }
+//    }
+//
+//}
+
+void levelOrder(struct Node *root) {
+    struct Queue q;
+    create(&q, 100);
+    printf("%d ", root->data);
+    enqueue(&q, root);
+
+    while (!isEmpty(q)){
+        root = dequeue(&q);
+        if (root->lchild){
+            printf("%d ", root->lchild->data);
+            enqueue(&q, root->lchild);
+        }
+        if (root->rchild){
+            printf("%d ", root->rchild->data);
+            enqueue(&q, root->rchild);
         }
     }
-
 }
 
 int main() {
     tree t;
     t.createTree();
-    printf("PreOrder ");
-    t.preOrder();
-    printf("InOrder ");
-    t.inOrder();
-
-
+//    printf("PreOrder ");
+//    t.preOrder();
+//    printf("InOrder ");
+//    t.inOrder();
+//    t.levelOrder();
     return 0;
 }

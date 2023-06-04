@@ -15,14 +15,15 @@ struct stack {
     int *s;
 };
 
-void create(struct stack *st) {
-    printf("Enter size");
-    scanf("%d", &st->size);
+void createStack(struct stack *st, int size) {
+//    printf("Enter size");
+//    scanf("%d", &st->size);
+    st->size = size;
     st->top = -1;
     st->s = (int *) malloc(st->size * sizeof(int));
 }
 
-void display(struct stack st) {
+void displayStack(struct stack st) {
     int i;
     for (i = st.top; i >= 0; i--)
         printf("%d ", st.s[i]);
@@ -30,7 +31,7 @@ void display(struct stack st) {
 
 }
 
-int push(struct stack *st, int x) {
+int pushStack(struct stack *st, int x) {
     if (st->top == st->size - 1)
         printf("stack overflow");
     else {
@@ -39,7 +40,7 @@ int push(struct stack *st, int x) {
     }
 }
 
-int pop(struct stack *st) {
+int popStack(struct stack *st) {
     int x = -1;
     if (st->top == -1)
         printf("stack underflow\n");
@@ -49,7 +50,7 @@ int pop(struct stack *st) {
     return x;
 }
 
-int peek(struct stack st, int index) {
+int peekStack(struct stack st, int index) {
     int x = 1;
     if (st.top - index < 0) {
         printf("Invalid index \n");
@@ -58,20 +59,21 @@ int peek(struct stack st, int index) {
     return x;
 }
 
-int isEmpty(struct stack st) {
+int isEmptyStack(struct stack st) {
     if (st.top == -1)
         return 1;
     return 0;
 }
 
-int isFull(struct stack st) {
+int isFullStack(struct stack st) {
     return st.top == st.size - 1;
 }
 
-int stackTop(struct stack st) {
+int stackTopStack(struct stack st) {
     if (!isEmpty(st))
         return st.s[st.top];
     return -1;
 }
+
 #endif // STACK_H_INCLUDED
 
