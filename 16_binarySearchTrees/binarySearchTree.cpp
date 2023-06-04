@@ -90,7 +90,7 @@ int main() {
 //    printf("\n");
     temp = search(20);
     if (temp != NULL)
-        printf("element %d is found \n", temp->data);
+        printf("\n element %d is found \n", temp->data);
     else
         printf("element os not found \n");
     return 0;
