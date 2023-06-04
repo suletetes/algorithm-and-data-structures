@@ -84,6 +84,38 @@ void tree::postOrder(node *p) {
     }
 }
 
+void tree::levelOrder(struct node *root) {
+    queue q(100);
+
+    printf("%d ", root->data);
+    q.enqueue(root);
+
+    while (!q.isEmpty()) {
+        root = q.dequeue();
+        if (root->lchild) {
+            printf("%d ", root->lchild->data);
+            q.enqueue(root->lchild);
+        }
+        if (root->rchild) {
+            printf("%d ", root->rchild->data);
+            q.enqueue(root->rchild);
+        }
+    }
+}
+
+int tree::height(struct node *root) {
+    int x = 0, y = 0;
+    if (root == 0)
+        return 0;
+    x = height(root->lchild);
+    y = height(root->rchild);
+    if (x > y)
+        return x + 1;
+    else
+        return y + 1;
+
+}
+
 int main() {
 
     return 0;
