@@ -6,9 +6,10 @@
 
 
 class tree {
-    node *root;
 
 public:
+    node *root;
+
     tree() {
         root = NULL;
     }
@@ -144,22 +145,43 @@ void levelOrder(struct Node *root) {
     printf("%d ", root->data);
     enqueue(&q, root);
 
-    while (!isEmpty(q)){
+    while (!isEmpty(q)) {
         root = dequeue(&q);
-        if (root->lchild){
+        if (root->lchild) {
             printf("%d ", root->lchild->data);
             enqueue(&q, root->lchild);
         }
-        if (root->rchild){
+        if (root->rchild) {
             printf("%d ", root->rchild->data);
             enqueue(&q, root->rchild);
         }
     }
 }
 
+int count(struct node *root) {
+    if (root) {
+        return count(root->lchild) + count(root->rchild) + 1;
+    }
+    return 0;
+}
+
+int height(struct node *root) {
+    int x = 0, y = 0;
+    if (root)
+        return 0;
+    x = height(root->lchild);
+    x = height(root->rchild);
+    if (x > y)
+        return x + 1;
+    else
+        return y + 1;
+}
+
 int main() {
     tree t;
     t.createTree();
+
+//    printf("count %d ", count(t)); #todo 298
 //    printf("PreOrder ");
 //    t.preOrder();
 //    printf("InOrder ");
