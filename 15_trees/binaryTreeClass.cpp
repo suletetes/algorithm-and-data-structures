@@ -4,9 +4,9 @@
 
 
 class tree {
-public:
     node *root;
 
+public:
     tree() {
         root = NULL;
     }
@@ -14,9 +14,11 @@ public:
     void createTree();
 
     void preOrder() { preOrder(root); }
+
     void preOrder(node *p);
 
     void postOrder(node *p);
+    void inOrder() { inOrder(root); }
 
     void inOrder(node *p);
 
@@ -123,7 +125,7 @@ int main() {
     printf("PreOrder ");
     t.preOrder();
     printf("InOrder ");
-    t.inOrder(t.root);
+    t.inOrder();
 
 
     return 0;
