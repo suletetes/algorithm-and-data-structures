@@ -120,6 +120,7 @@ struct node *Delete(struct node *p, int key) {
             p->rchild = Delete(p->rchild, q->data);
         }
     }
+    return p;
 }
 
 int main() {
@@ -129,6 +130,7 @@ int main() {
     rInsert(root, 20);
     rInsert(root, 8);
     rInsert(root, 30);
+    Delete(root, 8);
     inOrder(root);
 //    insert(10);
 //    insert(5);
