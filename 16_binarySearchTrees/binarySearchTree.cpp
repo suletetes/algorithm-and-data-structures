@@ -57,15 +57,37 @@ struct node *search(int key) {
     return NULL;
 }
 
+// recursiveInsert
+struct node *rInsert(struct node *p, int key) {
+    struct node *t = NULL;
+    if (p == NULL) {
+        t = (struct node *) malloc(sizeof(struct node));
+        t->data = key;
+        t->lchild = t->rchild = NULL;
+        return t;
+    }
+    if (key < p->data)
+        p->lchild = rInsert(p->lchild, key);
+    else if (key > p->data)
+        p->rchild = rInsert(p->rchild, key);
+    return p;
+}
+
 int main() {
     struct node *temp;
-    insert(10);
-    insert(5);
-    insert(20);
-    insert(8);
-    insert(30);
+    root = rInsert(root, 10);
+    rInsert(root, 5);
+    rInsert(root, 20);
+    rInsert(root, 8);
+    rInsert(root, 30);
     inOrder(root);
-    printf("\n");
+//    insert(10);
+//    insert(5);
+//    insert(20);
+//    insert(8);
+//    insert(30);
+//    inOrder(root);
+//    printf("\n");
     temp = search(20);
     if (temp != NULL)
         printf("element %d is found \n", temp->data);
