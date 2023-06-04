@@ -38,7 +38,7 @@ void insert(int key) {
 
 void inOrder(struct node *p) {
     if (p) {
-        inOrder(p->rchild);
+        inOrder(p->lchild);
         printf("%d ", p->data);
         inOrder(p->rchild);
     }
@@ -58,11 +58,18 @@ struct node *search(int key) {
 }
 
 int main() {
+    struct node *temp;
     insert(10);
     insert(5);
     insert(20);
+    insert(8);
     insert(30);
     inOrder(root);
     printf("\n");
+    temp = search(20);
+    if (temp != NULL)
+        printf("element %d is found \n", temp->data);
+    else
+        printf("element os not found \n");
     return 0;
 }
