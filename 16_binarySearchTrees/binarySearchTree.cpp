@@ -14,6 +14,7 @@ void insert(int key) {
         p = (struct node *) malloc(sizeof(struct node));
         p->data = key;
         p->lchild = p->rchild = NULL;
+        root = p;
         return;
     }
     while (t != NULL) {
@@ -41,6 +42,19 @@ void inOrder(struct node *p) {
         printf("%d ", p->data);
         inOrder(p->rchild);
     }
+}
+
+struct node *search(int key) {
+    struct node *t = root;
+    while (t != NULL) {
+        if (key == t->data)
+            return t;
+        else if (key < t->data)
+            t = t->lchild;
+        else
+            t = t->rchild;
+    }
+    return NULL;
 }
 
 int main() {
