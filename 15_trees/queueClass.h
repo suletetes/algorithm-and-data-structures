@@ -26,18 +26,22 @@ public:
     queue() {
         front = rear = -1;
         size = 10;
-        q = new node*[size];
+        q = new node *[size];
     }
 
     queue(int size) {
         front = rear = -1;
         this->size = size;
-        q = new node*[this->size];
+        q = new node *[this->size];
     }
 
-    node* dequeue();
+    node *dequeue();
 
     void enqueue(node *x);
+
+    int isEmpty() {
+        return front == rear;
+    }
 
     void display();
 };
@@ -51,8 +55,8 @@ void queue::enqueue(node *x) {
     }
 }
 
-node* queue::dequeue() {
-    node* x = NULL;
+node *queue::dequeue() {
+    node *x = NULL;
     if (front == rear) {
         printf("queue is empty");
     } else {

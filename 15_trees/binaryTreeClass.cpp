@@ -1,5 +1,5 @@
-#include "stdio.h"
-#include "stdlib.h"
+#include <cstdio>
+#include <cstdlib>
 #include "queueClass.h"
 
 
@@ -36,25 +36,25 @@ void tree::createTree() {}() {
     root->data = x;
     root->lchild = root->rchild = NULL;
     q.enqueue(&q, root);
-    while (!isEmpty(q)) {
-        p = dequeue(&q);
+    while (!q.isEmpty()) {
+        p = q.dequeue();
         printf("Enter left child of %d ", p->data);
         scanf("%d", &x);
         if (x != -1) {
-            t = (struct Node *) malloc(sizeof(struct Node));
+            t = new  Node;
             t->data = x;
             t->lchild = t->rchild = NULL;
             p->lchild = t;
-            enqueue(&q, t);
+            q.enqueue(t);
         }
         printf("Enter right child of %d ", p->data);
         scanf("%d", &x);
         if (x != -1) {
-            t = (struct Node *) malloc(sizeof(struct Node));
+            t = new Node;
             t->data = x;
             t->lchild = t->rchild = NULL;
             p->rchild = t;
-            enqueue(&q, t);
+            q.enqueue( t);
         }
     }
 }
