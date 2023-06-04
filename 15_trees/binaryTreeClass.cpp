@@ -13,6 +13,7 @@ public:
 
     void createTree();
 
+    void preOrder() { preOrder(root); }
     void preOrder(node *p);
 
     void postOrder(node *p);
@@ -119,7 +120,10 @@ int tree::height(struct node *root) {
 int main() {
     tree t;
     t.createTree();
-    t.preOrder(t.root);
+    printf("PreOrder ");
+    t.preOrder();
+    printf("InOrder ");
+    t.inOrder(t.root);
 
 
     return 0;
