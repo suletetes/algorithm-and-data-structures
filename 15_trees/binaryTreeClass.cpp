@@ -4,8 +4,8 @@
 
 
 class tree {
-    node *root;
 public:
+    node *root;
 
     tree() {
         root = NULL;
@@ -21,7 +21,7 @@ public:
 
     void levelOrder(node *p);
 
-    void height(node *root);
+    int height(node *root);
 };
 
 void tree::createTree() {
@@ -60,7 +60,7 @@ void tree::createTree() {
 }
 
 
-void tree::preOrder(node *p) {
+void tree::preOrder(struct node *p) {
     if (p) {
         printf("%d ", p->data);
         preOrder(p->lchild);
@@ -68,7 +68,7 @@ void tree::preOrder(node *p) {
     }
 }
 
-void tree::inOrder(node *p) {
+void tree::inOrder(struct node *p) {
     if (p) {
         inOrder(p->lchild);
         printf("%d ", p->data);
@@ -76,7 +76,7 @@ void tree::inOrder(node *p) {
     }
 }
 
-void tree::postOrder(node *p) {
+void tree::postOrder(struct node *p) {
     if (p) {
         postOrder(p->lchild);
         postOrder(p->rchild);
@@ -117,6 +117,10 @@ int tree::height(struct node *root) {
 }
 
 int main() {
+    tree t;
+    t.createTree();
+    t.preOrder(t.root);
+
 
     return 0;
 }
