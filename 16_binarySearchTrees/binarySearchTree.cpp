@@ -1,6 +1,16 @@
-#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
+
+struct node {
+    struct node *lchild;
+    int data;
+    struct node *rchild;
+} *root = NULL;
+
+void insert(int key) {
+
+}
 
 int main() {
-    std::cout << "Hello, World!" << std::endl;
     return 0;
 }
