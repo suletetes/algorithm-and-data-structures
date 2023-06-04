@@ -22,9 +22,16 @@ void insert(int key) {
         else if (key > t->data)
             t = t->rchild;
         else
-
-            return
+            return;
     }
+    p = (struct node *) malloc(sizeof(struct node));
+    p->data = key;
+    p->lchild = p->rchild = NULL;
+
+    if (key < r->data)
+        r->lchild = p;
+    else
+        r->rchild = p;
 }
 
 int main() {
