@@ -72,6 +72,15 @@ struct node *rInsert(struct node *p, int key) {
         p->rchild = rInsert(p->rchild, key);
     return p;
 }
+struct node *Delete(struct node *p, int key){
+    if (key < p->data)
+        p->lchild = Delete(p->lchild, key);
+    else if (key > p->data)
+        p->rchild = Delete(p->rchild, key);
+    else{
+
+    }
+}
 
 int main() {
     struct node *temp;
