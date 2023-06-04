@@ -1,7 +1,7 @@
 #include <cstdio>
 #include <cstdlib>
-#include "queueClass.h"
 #include "stack.h"
+#include "queueClass.h"
 
 
 class tree {
@@ -19,6 +19,7 @@ public:
     void preOrder(node *p);
 
     void postOrder(node *p);
+
     void inOrder() { inOrder(root); }
 
     void inOrder(node *p);
@@ -119,8 +120,20 @@ int tree::height(struct node *root) {
         return y + 1;
 
 }
-void iPreOrder(struct node *p){
+
+void iPreOrder(struct node *p) {
     struct stack stk;
+    create(&stk, 100);
+    while (p || !isEmpty(stk)) {
+        if (p) {
+            printf("%d ", p->data);
+            push(&stk, p);
+            p = p->lchild;
+        } else {
+            p = pop(&stk);
+            p = p->rchild;
+        }
+    }
 
 }
 

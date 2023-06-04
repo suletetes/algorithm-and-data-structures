@@ -9,98 +9,69 @@
 #include  "stdlib.h"
 #include "queue.h"
 
-struct Stack {
-
+struct stack {
     int size;
-
     int top;
-
-    long int *S;
-
+    int *s;
 };
 
-
-void Stackcreate(struct Stack *st, int size) {
-
-    st->size = size;
-
-
+void create(struct stack *st) {
+    printf("Enter size");
+    scanf("%d", &st->size);
     st->top = -1;
-
-
-    st->S = (long int *) malloc(st->size * sizeof(long int));
-
+    st->s = (int *) malloc(st->size * sizeof(int));
 }
 
-
-void push(struct Stack *st, long int x) {
-
-    if (st->top == st->size - 1)
-
-        printf("\nStack Overflow \n");
-
-    else
-
-        st->S[++st->top] = x;
-
-}
-
-
-long int pop(struct Stack *st) {
-
-    long int x = -1;
-
-
-    if (st->top == -1)
-
-
-        printf("\nStack Underflow\n");
-
-
-    else
-
-
-        x = st->S[st->top--];
-
-
-    return x;
-
-}
-
-
-int isEmptyStack(struct Stack st) {
-
-    if (st.top == -1)
-
-        return 1;
-
-    return 0;
-
-}
-
-
-int isFull(struct Stack st) {
-
-    return st.top == st.size - 1;
-
-}
-
-void stackDisplay(struct Stack st) {
-
-
+void display(struct stack st) {
     int i;
-
-
     for (i = st.top; i >= 0; i--)
-
-
-        printf("%d ", st.S[i]);
-
-
+        printf("%d ", st.s[i]);
     printf("\n");
 
-
 }
 
+int push(struct stack *st, int x) {
+    if (st->top == st->size - 1)
+        printf("stack overflow");
+    else {
+        st->top++;
+        st->s[st->top] = x;
+    }
+}
+
+int pop(struct stack *st) {
+    int x = -1;
+    if (st->top == -1)
+        printf("stack underflow\n");
+    else {
+        x = st->s[st->top--];
+    }
+    return x;
+}
+
+int peek(struct stack st, int index) {
+    int x = 1;
+    if (st.top - index < 0) {
+        printf("Invalid index \n");
+    }
+    x = st.s[st.top - index + 1];
+    return x;
+}
+
+int isEmpty(struct stack st) {
+    if (st.top == -1)
+        return 1;
+    return 0;
+}
+
+int isFull(struct stack st) {
+    return st.top == st.size - 1;
+}
+
+int stackTop(struct stack st) {
+    if (!isEmpty(st))
+        return st.s[st.top];
+    return -1;
+}
 #endif // STACK_H_INCLUDED
 
