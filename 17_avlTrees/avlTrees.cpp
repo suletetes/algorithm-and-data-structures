@@ -15,6 +15,13 @@ int nodeHeight(struct node *p) {
     return hl > hr ? hl + 1 : hr + 1;
 }
 
+int balanceFactor(struct node *p) {
+    int hl, hr;
+    hl = p && p->lchild ? p->lchild->height : 0;
+    hr = p && p->rchild ? p->rchild->height : 0;
+    return hl - hr;
+}
+
 struct node *rInsert(struct node *p, int key) {
     struct node *t = NULL;
     if (p == NULL) {
@@ -29,6 +36,16 @@ struct node *rInsert(struct node *p, int key) {
     else if (key > p->data)
         p->rchild = rInsert(p->rchild, key);
     p->height = nodeHeight(p);
+
+    if (balanceFactor(p) == 2 && balanceFactor(p->lchild) == 1)
+        return llRotation(p);
+    else if (balanceFactor(p) == 2 && balanceFactor(p->lchild) == -1)
+        return lrRotation(p);
+    else if (balanceFactor(p) == -2 && balanceFactor(p->rchild) == -1)
+        return rrRotation(p);
+    else if (balanceFactor(p) == 2 && balanceFactor(p->rchild) == 1)
+        return rlRotation(p);
+
     return p;
 }
 
