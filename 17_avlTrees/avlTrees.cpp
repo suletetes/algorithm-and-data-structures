@@ -22,6 +22,19 @@ int balanceFactor(struct node *p) {
     return hl - hr;
 }
 
+struct node *llRotation(struct node *p) {
+    struct node *pl = p->lchild;
+    struct node *plr = pl->rchild;
+    pl->rchild = p;
+    p->lchild = plr;
+    p->height = nodeHeight(p);
+    pl->height = nodeHeight(pl);
+
+    if (root == p)
+        root = pl;
+    return pl;
+}
+
 struct node *rInsert(struct node *p, int key) {
     struct node *t = NULL;
     if (p == NULL) {
