@@ -36,8 +36,8 @@ struct node *llRotation(struct node *p) {
 }
 
 struct node *rrRotation(struct node *p) {
-    node* pr = p->rchild;
-    node* prl = pr->lchild;
+    node *pr = p->rchild;
+    node *prl = pr->lchild;
 
     pr->lchild = p;
     p->rchild = prl;
@@ -47,7 +47,7 @@ struct node *rrRotation(struct node *p) {
     pr->height = nodeHeight(pr);
 
     // Update root
-    if (root == p){
+    if (root == p) {
         root = pr;
     }
     return pr;
@@ -69,7 +69,28 @@ struct node *lrRotation(struct node *p) {
 }
 
 
-struct node *rlRotation(struct node *p) { return NULL; }
+struct node *rlRotation(struct node *p) {
+
+    node *pr = p->rchild;
+    node *prl = pr->lchild;
+
+    pr->lchild = prl->rchild;
+    p->rchild = prl->lchild;
+
+    prl->rchild = pr;
+    prl->lchild = p;
+
+    // Update height
+    pr->height = nodeHeight(pr);
+    p->height = nodeHeight(p);
+    prl->height = nodeHeight(prl);
+
+    // Update root
+    if (root == p) {
+        root = prl;
+    }
+    return prl;
+}
 
 
 struct node *rInsert(struct node *p, int key) {
