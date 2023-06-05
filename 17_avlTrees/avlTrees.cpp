@@ -91,7 +91,7 @@ struct node *rlRotation(struct node *p) {
     }
     return prl;
 }
-
+//#todo add deletion
 
 struct node *rInsert(struct node *p, int key) {
     struct node *t = NULL;
