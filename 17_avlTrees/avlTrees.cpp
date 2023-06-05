@@ -35,6 +35,13 @@ struct node *llRotation(struct node *p) {
     return pl;
 }
 
+struct node *lrRotation(struct node *p) {}
+
+struct node *rrRotation(struct node *p) {}
+
+struct node *rlRotation(struct node *p) {}
+
+
 struct node *rInsert(struct node *p, int key) {
     struct node *t = NULL;
     if (p == NULL) {
@@ -63,7 +70,9 @@ struct node *rInsert(struct node *p, int key) {
 }
 
 int main() {
-
+    root = rInsert(root, 10);
+    rInsert(root, 5);
+    rInsert(root, 2);
 
     return 0;
 }
