@@ -434,3 +434,16 @@ void iInsert(struct Node *p, int x) {
     }
 }
 
+int main() {
+    iInsert(root, 20);
+    iInsert(root, 30);
+    iInsert(root, 40);
+    iInsert(root, 50);
+    iInsert(root, 60);
+    iInsert(root, 10);
+    iInsert(root, 15);
+    iInsert(root, 70);
+    iInsert(root, 80);
+    recursivePrint(root);
+    return 0;
+}
