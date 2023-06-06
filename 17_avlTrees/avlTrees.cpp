@@ -120,6 +120,11 @@ struct node *rInsert(struct node *p, int key) {
     return p;
 }
 
+struct node *Delete(struct node *p, int key) {
+
+
+}
+
 int main() {
     root = rInsert(root, 50);
     rInsert(root, 10);
