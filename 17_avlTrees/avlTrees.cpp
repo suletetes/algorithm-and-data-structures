@@ -135,6 +135,10 @@ struct node *Delete(struct node *p, int key) {
     } else if (key > p->data) {
         p->rchild = Delete(p->rchild, key);
     } else {
+        struct node *q;
+        if (nodeHeight(p->lchild) > nodeHeight(p->rchild)) {
+
+        }
 
     }
 
