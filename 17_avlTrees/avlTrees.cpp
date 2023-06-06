@@ -123,11 +123,19 @@ struct node *rInsert(struct node *p, int key) {
 struct node *Delete(struct node *p, int key) {
     if (p == nullptr)
         return nullptr;
-    if (p->lchild == nullptr && p->rchild== nullptr){
-        if (p == root){
+    if (p->lchild == nullptr && p->rchild == nullptr) {
+        if (p == root) {
             root = nullptr;
         }
-        delete p
+        delete p;
+        return nullptr;
+    }
+    if (key < p->data) {
+        p->lchild = Delete(p->lchild, key);
+    } else if (key > p->data) {
+        p->rchild = Delete(p->rchild, key);
+    } else {
+
     }
 
 }
