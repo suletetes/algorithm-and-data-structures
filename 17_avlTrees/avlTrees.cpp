@@ -151,10 +151,27 @@ struct node *Delete(struct node *p, int key) {
     } else {
         struct node *q;
         if (nodeHeight(p->lchild) > nodeHeight(p->rchild)) {
-            q =
+            q = inPre(p->lchild);
+            p->data = q->data;
+            p->lchild = Delete(p->rchild, q->data);
+        } else {
+            q = inSucc(p->rchild);
+            p->data = q->data;
+            p->rchild = Delete(p->rchild, q->data);
         }
-
     }
+    p->height = nodeHeight(p);
+
+    if (balanceFactor(p) == 2 && balanceFactor(p->lchild) == 1)
+        return llRotation(p);
+    else if (balanceFactor(p) == 2 && balanceFactor(p->lchild) == -1)
+        return lrRotation(p);
+    else if (balanceFactor(p) == -2 && balanceFactor(p->rchild) == -1)
+        return rrRotation(p);
+    else if (balanceFactor(p) == 2 && balanceFactor(p->rchild) == 1)
+        return rlRotation(p);
+
+    return p;
 
 }
 
