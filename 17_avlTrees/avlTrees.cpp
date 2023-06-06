@@ -8,6 +8,20 @@ struct node {
     struct node *rchild;
 } *root = NULL;
 
+struct node *inPre(struct node *p) {
+    while (p && p->rchild != NULL) {
+        p = p->rchild;
+    }
+    return p;
+}
+
+struct node *inSucc(struct node *p) {
+    while (p && p->lchild != NULL) {
+        p = p->lchild;
+    }
+    return p;
+}
+
 int nodeHeight(struct node *p) {
     int hl, hr;
     hl = p && p->lchild ? p->lchild->height : 0;
