@@ -4,7 +4,7 @@
  * 2020, FIIT STU, Bratislava, Slovakia
  */
 
-#include "../include/2_3tree_augmented.h"
+#include "2_3tree_augmented.h"
 
 struct _node *_node(struct _node init)
 {
