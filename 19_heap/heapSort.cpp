@@ -12,7 +12,8 @@ void insert(int h[], int n) {
 }
 
 int Delete(int a[], int n) {
-    int i, j, x, temp;
+    int i, j, x, temp, val;
+    val = a[1];
     x = a[n];
     a[1] = a[n];
     i = 1;
@@ -26,7 +27,8 @@ int Delete(int a[], int n) {
             a[j] = temp;
             i = j;
             j = 2 * j;
-        }
+        } else
+            break;
     }
 }
 
