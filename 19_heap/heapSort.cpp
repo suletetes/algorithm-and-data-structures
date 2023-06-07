@@ -13,6 +13,9 @@ void insert(int h[], int n) {
 
 int main() {
     int h[] = {0, 2, 5, 8, 9, 4, 10, 7};
-
+    insert(h, 2);
+    insert(h, 1);
+    insert(h, 5);
+    insert(h, 4);
     return 0;
 }
