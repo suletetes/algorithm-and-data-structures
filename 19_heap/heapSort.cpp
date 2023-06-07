@@ -13,9 +13,11 @@ void insert(int h[], int n) {
 
 int main() {
     int h[] = {0, 2, 5, 8, 9, 4, 10, 7};
-    insert(h, 2);
-    insert(h, 1);
-    insert(h, 5);
-    insert(h, 4);
+    for (int i = 2; i <= 7; i++)
+        insert(h, i);
+    for (int i = 1; i <= 7; ++i) {
+        printf("%d ", h[i]);
+    }
+    printf("\n");
     return 0;
 }
