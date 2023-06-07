@@ -11,6 +11,25 @@ void insert(int h[], int n) {
     h[i] = temp;
 }
 
+int Delete(int a[], int n) {
+    int i, j, x, temp;
+    x = a[n];
+    a[1] = a[n];
+    i = 1;
+    j = i * 2;
+    while (j < n - 1) {
+        if (a[j + 1] > a[j])
+            j = j + 1;
+        if (a[i] < a[j]) {
+            temp = a[i];
+            a[i] = a[j];
+            a[j] = temp;
+            i = j;
+            j = 2 * j;
+        }
+    }
+}
+
 int main() {
     int h[] = {0, 2, 5, 8, 9, 4, 10, 7};
     for (int i = 2; i <= 7; i++)
