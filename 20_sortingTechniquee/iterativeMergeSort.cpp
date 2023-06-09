@@ -23,13 +23,28 @@ int partition(int a[], int l, int h) {
 void merge(int a[], int l, int mid, int h) {
     int i, j, k;
     int b[100];
+    while (i <= mid && j <= h) {
+        if (a[i] < a[j])
+            b[k++] = a[i++];
+        else
+            b[k++] = a[j++];
+    }
+    for (; i <= mid; ++i) {
+        b[k++] = a[i];
+    }
+    for (; j <= h; ++j) {
+        b[k++] = a[i];
+    }
+    for (int i = l; i <= h; ++i) {
+        a[i] = b[i];
+    }
 
 }
 
 int main() {
 
     int a[] = {3, 7, 9, 10, 6, 5, 12, 4, 11, 2, INT32_MAX}, n = 11;
-    quickSort(a, 0, n - 1);
+
     for (int i = 0; i < 10; ++i) {
         printf("%d ", a[i]);
     }
