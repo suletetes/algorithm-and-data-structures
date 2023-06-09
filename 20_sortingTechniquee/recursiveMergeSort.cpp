@@ -17,3 +17,17 @@ void merge(int A[], int l, int mid, int h) {
     for (i = l; i <= h; i++)
         A[i] = B[i];
 }
+
+void recursiveMergeSort(int a[], int l, int h) {
+    int mid;
+    if (l < h) {
+        mid = (l + h) / 2;
+        merge(a, l, mid);
+        merge(a, mid + 1, h);
+        merge(a, l, mid, h);
+    }
+}
+
+int main() {
+
+}
