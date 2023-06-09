@@ -2,12 +2,20 @@
 #include "stdio.h"
 
 
+void swap(int *x, int *y) {
+    int temp = *x;
+    *x = *y;
+    *y = temp;
+}
+
 void selectionSort(int a[], int n) {
     int i, j, k;
     for (i = 1; i < n; ++i) {
         for (j = k = i; j < n; ++j) {
-
+            if (a[j] < a[k])
+                k = j;
         }
+        swap(&a[i], &a[k]);
     }
 }
 
