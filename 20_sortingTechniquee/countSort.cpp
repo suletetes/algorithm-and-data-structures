@@ -8,7 +8,7 @@ void swap(int *x, int *y) {
 }
 
 int findMax(int A[], int n) {
-    int max = INT32_MIN;
+    int max = INT_MIN;
     int i;
     for (i = 0; i < n; i++) {
         if (A[i] > max)
@@ -39,4 +39,16 @@ void CountSort(int A[], int n) {
         } else
             j++;
     }
+}
+
+int main() {
+    int A[] = {11, 13, 7, 12, 16, 9, 24, 5, 10, 3}, n = 10, i;
+
+    CountSort(A, n);
+
+    for (i = 0; i < 10; i++)
+        printf("%d ", A[i]);
+    printf("\n");
+
+    return 0;
 }
