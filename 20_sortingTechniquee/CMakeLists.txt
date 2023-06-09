@@ -3,5 +3,5 @@ project(20_sortingTechniquee)
 
 set(CMAKE_CXX_STANDARD 23)
 
-add_executable(20_sortingTechniquee binBucket.cpp)
+add_executable(20_sortingTechniquee radixShort.cpp)
 #add_executable(20_sortingTechniquee   .cpp .cpp radixShort.cpp shellSort.cpp)
