@@ -29,7 +29,7 @@ void merge(int a[], int l, int mid, int h) {
     }
 
 }
-
+// #todo there is a bug
 void iterativeMergeSort(int a[], int n) {
     int p, l, h, mid, i;
     for (p = 2; p <= n; p = p * 2) {
