@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include<stdlib.h>
 
-
+// todo there is a bug
 int findMax(int a[], int n) {
     int max = INT_MIN;
     int i;
@@ -14,6 +14,7 @@ int findMax(int a[], int n) {
 
 void countSort(int a[], int n) {
     int i, j, max, *c;
+    max = findMax(a, n);
     c = (int *) malloc(sizeof(int) * max + 1);
     for (i = 0; i < max + 1; ++i) {
         c[i] = 0;
@@ -37,7 +38,7 @@ void countSort(int a[], int n) {
 int main() {
 
     int a[] = {3, 7, 9, 10, 6, 5, 12, 4, 11, 2}, n = 10;
-    findMax(a, n);
+    countSort(a, n);
     for (int i = 0; i < 10; ++i) {
         printf("%d ", a[i]);
     }
