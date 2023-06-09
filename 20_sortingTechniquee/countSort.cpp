@@ -1,47 +1,42 @@
 #include <stdio.h>
 #include<stdlib.h>
 
-// todo there is a bug
-int findMax(int a[], int n) {
-    int max = INT_MIN;
+void swap(int *x, int *y) {
+    int temp = *x;
+    *x = *y;
+    *y = temp;
+}
+
+int findMax(int A[], int n) {
+    int max = INT32_MIN;
     int i;
-    for (int i = 0; i < n; ++i) {
-        if (a[i] > max)
-            max = a[i];
+    for (i = 0; i < n; i++) {
+        if (A[i] > max)
+            max = A[i];
     }
     return max;
 }
 
-void countSort(int a[], int n) {
-    int i, j, max, *c;
-    max = findMax(a, n);
-    c = (int *) malloc(sizeof(int) * max + 1);
-    for (i = 0; i < max + 1; ++i) {
-        c[i] = 0;
+void CountSort(int A[], int n) {
+    int i, j, max, *C;
+
+    max = findMax(A, n);
+    C = (int *) malloc(sizeof(int) * (max + 1));
+
+    for (i = 0; i < max + 1; i++) {
+        C[i] = 0;
     }
-    for (i = 0; i < n; ++i) {
-        c[a[i]]++;
+    for (i = 0; i < n; i++) {
+        C[A[i]]++;
     }
+
     i = 0;
     j = 0;
     while (j < max + 1) {
-        if (c[j] > 0) {
-            a[i] = j;
-            c[j]--;
+        if (C[j] > 0) {
+            A[i++] = j;
+            C[j]--;
         } else
             j++;
     }
-
-}
-
-
-int main() {
-
-    int a[] = {3, 7, 9, 10, 6, 5, 12, 4, 11, 2}, n = 10;
-    countSort(a, n);
-    for (int i = 0; i < 10; ++i) {
-        printf("%d ", a[i]);
-    }
-    printf("\n");
-    return 0;
 }
