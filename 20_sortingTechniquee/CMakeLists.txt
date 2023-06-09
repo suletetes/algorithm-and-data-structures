@@ -3,5 +3,5 @@ project(20_sortingTechniquee)
 
 set(CMAKE_CXX_STANDARD 23)
 
-add_executable(20_sortingTechniquee quickSort.cpp)
-#add_executable(20_sortingTechniquee  .cpp .cpp iterativeMergeSort.cpp recursiveMergeSort.cpp countSort.cpp binBucket.cpp radixShort.cpp shellSort.cpp)
+add_executable(20_sortingTechniquee iterativeMergeSort.cpp)
+#add_executable(20_sortingTechniquee  recursiveMergeSort.cpp countSort.cpp binBucket.cpp radixShort.cpp shellSort.cpp)
