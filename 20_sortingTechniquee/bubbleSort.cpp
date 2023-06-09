@@ -8,7 +8,7 @@ void swap(int *x, int *y) {
 }
 
 void bubble(int a[], int n) {
-    int i, j, flag = 0;
+    int i, j, flag = 0; // adding var flag makes it adaptive
     for (i = 0; i < n - 1; ++i) {
         flag = 0;
         for (j = 0; j < n - 1; ++j) {
