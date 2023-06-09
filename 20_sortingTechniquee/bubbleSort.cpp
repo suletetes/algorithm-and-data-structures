@@ -1,6 +1,12 @@
 #include <iostream>
 #include "stdio.h"
 
+void swap(int *x, int *y) {
+    int temp = *x;
+    *x = *y;
+    *y = temp;
+}
+
 void bubble(int a[], int n) {
     int i, j;
     for (i = 0; i < n - 1; ++i) {
