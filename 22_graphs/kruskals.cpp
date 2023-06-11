@@ -41,20 +41,50 @@ int Find(int u, int s[]) {
     return x;
 }
 
+void KruskalsMCST(int A[3][9]) {
+    int T[2][V - 1];  // Solution array
+    int track[E]{0};  // Track edges that are included in solution
+    int set[V + 1] = {-1, -1, -1, -1, -1, -1, -1, -1};  // Array for finding cycle
 
-int main() {
-    int i, j, k, u, v, min = I, n = 7, e = 9;
-    while (i < n - 1) {
-        min = I;
-        for (j = 0; j < e; ++j) {
-            if (edges[2][j] < min) {
-                min = edges[2][j];
-                u = edges[0][j];
-                v = edges[1][j];
+    int i{0};
+    while (i < V - 1) {
+        int min = I;
+        int u{0};
+        int v{0};
+        int k{0};
+
+        // Find a minimum cost edge
+        for (int j{0}; j < E; j++) {
+            if (track[j] == 0 && A[2][j] < min) {
+                min = A[2][j];
+                u = A[0][j];
+                v = A[1][j];
                 k = j;
-
             }
         }
+
+        // Check if the selected min cost edge (u, v) forming a cycle or not
+        if (Find(u, set) != Find(v, set)) {
+            T[0][i] = u;
+            T[1][i] = v;
+
+            // Perform union
+            Union(Find(u, set), Find(v, set), set);
+            i++;
+        }
+        track[k] = 1;
     }
+
+    PrintMCST(T, A);
+}
+
+int main() {
+    int edges[3][9] = {{1,  1, 2,  2,  3, 4,  4,  5,  5},
+                       {2,  6, 3,  7,  4, 5,  7,  6,  7},
+                       {25, 5, 12, 10, 8, 16, 14, 20, 18}};
+
+    KruskalsMCST(edges);
+
+    return 0;
 
 }
