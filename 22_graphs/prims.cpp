@@ -19,6 +19,18 @@ int t[2][6];
 
 int main() {
     int i, j, k, u, v, n = 7, min = I;
+    for (int i = 1; i <= n; ++i) {
+        for (int j = i; j <= n; ++j) {
+            if (cost[i][j] < min) {
+                min = cost[i][j];
+                u = i;
+                v = j;
+            }
+        }
 
+    }
+    t[0][0] = u;
+    t[1][0] = v;
+    near[u] = near[v] = 0;
 
 }
