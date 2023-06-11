@@ -1,52 +1,49 @@
-//
-// Created by suleiman on 03/06/2023.
-//
-#include "stdio.h"
-#include "stdlib.h"
+#ifndef Queue_h
+#define Queue_h
 
-#ifndef INC_15_TREES_QUEUE_H
-#define INC_15_TREES_QUEUE_H
+#include <stdlib.h>
+
 struct Node {
-    struct Node *lchild;
     int data;
-    struct Node *rchild;
-};
-struct Queue {
-    int size;
-    int front;
-    int rear;
-    struct Node **Q;
-};
+    struct Node *next;
 
-void create(struct Queue *q, int size) {
-    q->size = size;
-    q->front = q->rear = 0;
-    q->Q = (struct Node **) malloc(q->size * sizeof(struct Node *));
-}
+} *front = NULL, *rear = NULL;
 
-void enqueue(struct Queue *q, struct Node *x) {
-    if ((q->rear + 1) % q->size == q->front)
-        printf("Queue is Full");
+void enqueue(int x) {
+    struct Node *t;
+    t = (struct Node *) malloc(sizeof(struct Node));
+    if (t == NULL)
+        printf("Queue is FUll\n");
     else {
-        q->rear = (q->rear + 1) % q->size;
-        q->Q[q->rear] = x;
+        t->data = x;
+        t->next = NULL;
+        if (front == NULL)
+            front = rear = t;
+        else {
+            rear->next = t;
+            rear = t;
+        }
     }
+
 }
 
-struct Node *dequeue(struct Queue *q) {
-    struct Node *x = NULL;
+int dequeue() {
+    int x = -1;
+    struct Node *t;
 
-    if (q->front == q->rear)
+    if (front == NULL)
         printf("Queue is Empty\n");
     else {
-        q->front = (q->front + 1) % q->size;
-        x = q->Q[q->front];
+        x = front->data;
+        t = front;
+        front = front->next;
+        free(t);
     }
     return x;
 }
 
-int isEmpty(struct Queue q) {
-    return q.front == q.rear;
+int isEmpty() {
+    return front == NULL;
 }
 
-#endif //INC_15_TREES_QUEUE_H
+#endif /* Queue_h */
