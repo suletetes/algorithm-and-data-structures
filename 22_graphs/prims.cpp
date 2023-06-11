@@ -34,10 +34,12 @@ int main() {
     t[1][0] = v;
     near[u] = near[v] = 0;
     for (int i = 1; i <= n; ++i) {
-        if (cost[i][u] < cost[i][v]) {
-            near[i] = u;
-        } else {
-            near[i] = v;
+        if (near[i]!=0) {
+            if (cost[i][u] < cost[i][v]) {
+                near[i] = u;
+            } else {
+                near[i] = v;
+            }
         }
     }
     for (int i = 1; i < n - 1; ++i) {
