@@ -21,6 +21,15 @@ void insert(int h[], int key) {
     h[index] = key;
 }
 
+int search(int h[], int key) {
+    int index = hash(key);
+    int i = 0;
+    while (h[(index + i)] % SIZE != key) {
+        i++;
+    }
+    return (index + i) % SIZE;
+}
+
 int main() {
     int ht[10] = {0};
     insert(ht, 12);
