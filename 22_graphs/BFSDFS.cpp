@@ -23,6 +23,18 @@ void bfs(int g[][7], int start, int n) {
     }
 };
 
+void dfs(int g[][7], int start, int n) {
+    static int visited[7] = {0};
+    if (visited[start] == 0) {
+        printf("%d ", start);
+        for (int j = 1; j < n; ++j) {
+            if (g[start][j] == 1 && visited[j] == 0) {
+                dfs(g, j, n);
+            }
+        }
+    }
+}
+
 int main() {
     int g[7][7] = {
             {0, 0, 0, 0, 0, 0, 0},
