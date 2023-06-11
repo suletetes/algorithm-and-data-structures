@@ -42,8 +42,19 @@ int Find(int u, int s[]) {
 }
 
 
-
 int main() {
+    int i, j, k, u, v, min = I, n = 7, e = 9;
+    while (i < n - 1) {
+        min = I;
+        for (j = 0; j < e; ++j) {
+            if (edges[2][j] < min) {
+                min = edges[2][j];
+                u = edges[0][j];
+                v = edges[1][j];
+                k = j;
 
+            }
+        }
+    }
 
 }
