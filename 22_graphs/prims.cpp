@@ -1,8 +1,9 @@
 #include "stdio.h"
+#include "iostream"
 
 #define V 8
 #define I 32767
-
+using namespace std;
 
 int cost[V][V]{
         {I, I,  I, I,  I, I,  I, I},
@@ -42,7 +43,7 @@ int main() {
     for (int i = 1; i < n - 1; ++i) {
         min = I;
         for (int j = 1; j <= n; ++j) {
-            if (near[j != 0 && cost[j][near[j]] < min) {
+            if (near[j] != 0 && cost[j][near[j]] < min) {
                 k = j;
                 min = cost[j][near[j]];
             }
@@ -50,6 +51,14 @@ int main() {
         t[0][i] = k;
         t[1][i] = near[k];
         near[k] = 0;
+        for (int j = 1; j <= n; ++j) {
+            if (near[j] != 0 && cost[j][k] < cost[j][near[j]])
+                near[j] = k;
+
+        }
+    }
+    for (int i = 0; i < n - 1; ++i) {
+        cout << "(" << t[0][i] << "," << t[1][i] << ")" <<endl;
     }
 
 }
