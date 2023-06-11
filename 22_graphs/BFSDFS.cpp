@@ -5,12 +5,12 @@
 //bfs(breadth first search) dfs (depth first search)
 void bfs(int g[][7], int start, int n) {
     int i = start;
-    struct Queue q;
+//    struct Queue q;
     int visited[7] = {0};
 
     printf("%d ", i);
     visited[i] = 1;
-    enqueue(q, i);
+    enqueue(i);
     while (!isEmpty()) {
         i = dequeue();
         for (int j = 1; j < n; ++j) {
@@ -34,5 +34,6 @@ int main() {
             {0, 0, 0, 0, 1, 0, 0},
 
     };
+    bfs(g, 1, 7);
     return 0;
 }
