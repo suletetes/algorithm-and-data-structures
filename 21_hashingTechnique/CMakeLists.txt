@@ -3,4 +3,4 @@ project(21_hashingTechnique)
 
 set(CMAKE_CXX_STANDARD 23)
 
-add_executable(21_hashingTechnique chaining.cpp  chains.h)
+add_executable(21_hashingTechnique linearProbing.cpp  chains.h)
