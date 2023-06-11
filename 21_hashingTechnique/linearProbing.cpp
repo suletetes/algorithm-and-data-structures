@@ -36,7 +36,7 @@ int main() {
     insert(ht, 25);
     insert(ht, 35);
     insert(ht, 26);
-
+    printf("key founf at %d\n", search(ht, 35));
 
     return 0;
 }
