@@ -47,6 +47,9 @@ int main() {
                 min = cost[j][near[j]];
             }
         }
+        t[0][i] = k;
+        t[1][i] = near[k];
+        near[k] = 0;
     }
 
 }
